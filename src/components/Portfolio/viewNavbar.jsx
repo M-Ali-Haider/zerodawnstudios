@@ -6,11 +6,11 @@ import { useDispatch } from "react-redux";
 const ViewNavBar = () => {
   const dispatch = useDispatch();
   return (
-    <div className="hidden sm:flex items-center gap-4 rounded-full bg-gray-700">
+    <div className="flex items-center gap-4 rounded-full bg-gray-700">
       {viewOptions.map((item, index) => (
         <div
           onClick={() => dispatch(handleViewChange(item))}
-          className={`cursor-pointer px-6 py-3`}
+          className={`cursor-pointer text-sm sm:text-base px-5 sm:px-6 sm:py-3`}
           key={index}
         >
           {item.title}

@@ -15,14 +15,13 @@ const HorizontalScroll = () => {
 
   return (
     <div className={`w-full h-[500vh] relative`} ref={horizontalContainer}>
-      <motion.div
-        style={{ x }}
-        className={`sticky top-0 w-full h-screen flex ease-olivier-ease`}
-      >
-        {horizontalCards.map((item, index) => {
-          return <HorizontalCard key={index} item={item} index={index} />;
-        })}
-      </motion.div>
+      <div className={`sticky top-0 w-full h-screen overflow-hidden`}>
+        <motion.div style={{ x }} className={`w-full h-full flex`}>
+          {horizontalCards.map((item, index) => {
+            return <HorizontalCard key={index} item={item} index={index} />;
+          })}
+        </motion.div>
+      </div>
     </div>
   );
 };

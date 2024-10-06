@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ReduxStoreProvider from "@/providers/ReduxProvider";
 import StickyCursor from "@/components/StickyCursor";
+import LenisScrollProvider from "@/providers/LenisScroll";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ReduxStoreProvider>
+          <LenisScrollProvider />
           <StickyCursor />
           {children}
         </ReduxStoreProvider>

@@ -35,7 +35,7 @@ const StickyCursor = () => {
         width: cursorSize,
         height: cursorSize,
       }}
-      className={`bg-white fixed hidden xs:block rounded-full pointer-events-none`}
+      className={`bg-white fixed z-[100] hidden xs:block rounded-full pointer-events-none`}
     ></motion.div>
   );
 };

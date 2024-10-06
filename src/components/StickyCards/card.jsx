@@ -20,14 +20,15 @@ const Card = ({ index, range, targetScale, progress, item }) => {
       <motion.div
         className={`${
           index % 2 === 0 ? "text-white" : " text-black"
-        } flex p-16 items-center rounded-3xl justify-center w-full aspect-[16/9] relative`}
+        } flex p-6 md:p-16 items-center rounded-3xl justify-center w-full 
+        aspect-[9/16] md:aspect-[16/9] relative`}
         style={{
           scale: cardScale,
-          top: `calc(-10% + ${index * 25}px)`,
+          top: `calc(-10% + ${index * 50}px)`,
           background: `${item.bg}`,
         }}
       >
-        <div className="w-full aspect-[16/9] overflow-hidden">
+        <div className="w-full aspect-[9/16] md:aspect-[16/9] overflow-hidden">
           <motion.div
             style={{ scale: imageScale }}
             className="w-full h-full relative"

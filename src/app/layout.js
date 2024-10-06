@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import ReduxStoreProvider from "@/providers/ReduxProvider";
+import StickyCursor from "@/components/StickyCursor";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -24,7 +25,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ReduxStoreProvider>{children}</ReduxStoreProvider>
+        <ReduxStoreProvider>
+          <StickyCursor />
+          {children}
+        </ReduxStoreProvider>
       </body>
     </html>
   );

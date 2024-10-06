@@ -24,7 +24,7 @@ const Card = ({ index, range, targetScale, progress, item }) => {
         aspect-[9/16] md:aspect-[16/9] relative`}
         style={{
           scale: cardScale,
-          top: `calc(-10% + ${index * 40}px)`,
+          top: `calc(-10% + ${index * 30}px)`,
           background: `${item.bg}`,
         }}
       >

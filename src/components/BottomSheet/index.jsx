@@ -71,7 +71,7 @@ const DragCloseDrawer = ({ open, setOpen, children }) => {
             drag="y"
             dragControls={controls}
             onDragEnd={() => {
-              if (y.get() >= 100) {
+              if (y.get() >= 25) {
                 handleClose();
               }
             }}

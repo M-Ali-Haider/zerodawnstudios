@@ -8,7 +8,7 @@ import {
   motion,
 } from "framer-motion";
 
-export const DragCloseDrawerExample = () => {
+export const BottomSheet = () => {
   const [open, setOpen] = useState(false);
   return (
     <div className="grid h-screen place-content-center bg-white">
@@ -66,7 +66,7 @@ const DragCloseDrawer = ({ open, setOpen, children }) => {
             transition={{
               ease: "easeInOut",
             }}
-            className="absolute bottom-0 h-[75vh] w-full overflow-hidden rounded-t-3xl bg-white select-none"
+            className="absolute bottom-0 h-[50vh] w-full overflow-hidden rounded-t-3xl bg-white select-none"
             style={{ y }}
             drag="y"
             dragControls={controls}

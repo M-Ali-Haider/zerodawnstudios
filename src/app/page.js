@@ -1,13 +1,13 @@
 // import Header from "@/components/Header";
 
-import { DragCloseDrawerExample } from "@/components/BottomSheet";
+import { BottomSheet } from "@/components/BottomSheet";
 
 // import Home from "@/components/Home";
 export default function Homepage() {
   return (
     <>
       {/* <Header /> */}
-      <DragCloseDrawerExample />
+      <BottomSheet />
       {/* <Home /> */}
     </>
   );

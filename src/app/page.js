@@ -1,4 +1,14 @@
-import Home from "@/components/Home";
+// import Header from "@/components/Header";
+
+import { DragCloseDrawerExample } from "@/components/BottomSheet";
+
+// import Home from "@/components/Home";
 export default function Homepage() {
-  return <Home />;
+  return (
+    <>
+      {/* <Header /> */}
+      <DragCloseDrawerExample />
+      {/* <Home /> */}
+    </>
+  );
 }

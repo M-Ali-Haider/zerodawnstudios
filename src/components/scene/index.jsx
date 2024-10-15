@@ -1,9 +1,12 @@
-import Spline from "@splinetool/react-spline/next";
-
+"use client";
+import { Canvas } from "@react-three/fiber";
+import { Environment } from "@react-three/drei";
+import Model from "./model";
 export default function Scene() {
   return (
-    <main>
-      <Spline scene="https://prod.spline.design/ZTnDYsGKhrpTmpWU/scene.splinecode" />
-    </main>
+    <Canvas>
+      <Environment preset="dawn" />
+      <Model />
+    </Canvas>
   );
 }

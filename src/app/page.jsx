@@ -1,18 +1,10 @@
-import dynamic from "next/dynamic";
-
-const Scene = dynamic(() => import("@/components/scene"), {
-  ssr: false,
-});
+import Description from "@/components/Description";
 
 export default function Homepage() {
   return (
     <>
-      <div className="h-screen w-full flex">
-        {/* <div className="flex-1"></div> */}
-        <div className="flex-1 border relative">
-          <Scene />
-        </div>
-      </div>
+      <div className="h-screen"></div>
+      <Description />
     </>
   );
 }

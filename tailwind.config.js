@@ -18,6 +18,9 @@ module.exports = {
       "2xl": "1536px",
     },
     extend: {
+      fontFamily: {
+        suisseIntl: ["var(--font-suisseIntl)"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

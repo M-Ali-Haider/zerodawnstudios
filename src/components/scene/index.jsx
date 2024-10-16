@@ -29,7 +29,7 @@ export default function Scene() {
     return () => container.removeEventListener("mousemove", manageMouseMove);
   }, []);
   return (
-    <div ref={containerRef} className="flex-1 relative min-w-[300px]">
+    <div ref={containerRef} className="min-w-[50vw] max-w-[50vw] relative">
       <Canvas>
         <OrbitControls enableZoom={false} enablePan={false} />
         <Environment preset="dawn" />

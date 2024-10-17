@@ -1,10 +1,12 @@
-import Description from "@/components/Description";
+import Header from "@/components/Header";
+import Landing from "@/components/Landing";
 
 export default function Homepage() {
   return (
     <>
-      <Description />
-      <div className="h-screen" />
+      <Header />
+      <Landing />
+      <div className="h-screen"></div>
     </>
   );
 }

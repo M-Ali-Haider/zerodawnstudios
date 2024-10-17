@@ -13,7 +13,7 @@ const Description = () => {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-50vw"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-75vw"]);
 
   return (
     <div className={`w-full h-[150vh] relative`} ref={containerRef}>

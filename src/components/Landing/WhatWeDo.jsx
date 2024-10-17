@@ -2,7 +2,7 @@ const WhatWeDo = () => {
   return (
     <div
       className="h-screen min-w-[50vw] max-w-[50vw]
-        flex flex-col items-center justify-center"
+        flex flex-col justify-center"
     >
       <div className="max-w-[544px] font-light">
         <div className="text-lg leading-[23.35px]">WHAT WE DO</div>

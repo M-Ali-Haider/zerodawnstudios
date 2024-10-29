@@ -4,6 +4,8 @@ import { useRef } from "react";
 import Scene from "../scene";
 import LandingTitle from "./landingTitle";
 import WhatWeDo from "./WhatWeDo";
+import Header from "@/components/Header";
+
 const Landing = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({

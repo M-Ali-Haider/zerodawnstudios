@@ -15,10 +15,11 @@ export default function Scene() {
   };
 
   const manageMouseMove = (e) => {
-    const { innerWidth, innerHeight } = window;
+    const { width, top, left, height } =
+      containerRef.current.getBoundingClientRect();
     const { clientX, clientY } = e;
-    const x = clientX / innerWidth;
-    const y = clientY / innerHeight;
+    const x = -0.5 + (clientX - left) / width;
+    const y = -0.5 + (clientY - top) / height;
     mouse.x.set(x);
     mouse.y.set(y);
   };

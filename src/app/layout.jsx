@@ -1,4 +1,4 @@
-import LenisScrollProvider from "@/providers/LenisScroll";
+import LocomotiveScroll from "@/providers/LocomotiveScroll";
 import ReduxStoreProvider from "@/providers/ReduxProvider";
 import { SuisseIntl } from "./fonts/fonts";
 import "./globals.css";
@@ -12,8 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${SuisseIntl.className} antialiased`}>
         <ReduxStoreProvider>
-          <LenisScrollProvider />
-          {children}
+          <LocomotiveScroll>{children}</LocomotiveScroll>
         </ReduxStoreProvider>
       </body>
     </html>

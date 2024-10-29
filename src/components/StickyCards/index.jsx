@@ -12,7 +12,10 @@ const StickyCards = () => {
   });
 
   return (
-    <div ref={cardsContainer} className="w-full my-96 relative max-w-[1024px]">
+    <div
+      ref={cardsContainer}
+      className="w-full relative flex flex-col items-center mt-40"
+    >
       {stickyCards.map((item, index) => (
         <Card
           key={index}

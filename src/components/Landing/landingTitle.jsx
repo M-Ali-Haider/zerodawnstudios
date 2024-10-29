@@ -2,6 +2,7 @@
 import { slideUp } from "@/utils/textAnim";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+
 const LandingTitle = () => {
   const words = ["ZERO", "DAWN", "STUDIOS"];
   const container = useRef(null);
@@ -9,7 +10,7 @@ const LandingTitle = () => {
   return (
     <div
       className="h-screen min-w-[50vw] max-w-[50vw] 
-        flex flex-col items-center justify-center"
+        flex flex-col items-end justify-center"
       ref={container}
     >
       <div className={`text-9xl leading-[166.02px] font-light`}>

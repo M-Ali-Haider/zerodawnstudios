@@ -15,7 +15,7 @@ const Card = ({ index, range, targetScale, progress, item }) => {
       ref={cardContainer}
       key={index}
       className={`h-screen items-center justify-center flex
-        font-bold text-3xl sticky top-0`}
+        font-bold text-3xl sticky top-[160px] max-w-[1120px] w-full`}
     >
       <motion.div
         className={`${

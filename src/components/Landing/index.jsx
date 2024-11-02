@@ -1,10 +1,25 @@
 "use client";
 import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Scene from "../scene";
 import LandingTitle from "./landingTitle";
 import WhatWeDo from "./WhatWeDo";
-import Header from "@/components/Header";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+
+const Scene = dynamic(() => import("@/components/scene/index"), {
+  ssr: false,
+  loading: () => (
+    <div className="h-screen min-w-[50vw] max-w-[50vw] relative flex items-center justify-center">
+      <Image
+        src="/Scene/chips.png"
+        alt="replacer image while actual 3d loading"
+        width={500}
+        height={500}
+        className="w-[30vw]"
+      />
+    </div>
+  ),
+});
 
 const Landing = () => {
   const containerRef = useRef(null);

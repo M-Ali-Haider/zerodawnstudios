@@ -1,9 +1,9 @@
 "use client";
+import { stickyCards } from "@/utils/stickyCards";
 import { useScroll } from "framer-motion";
 import { useRef } from "react";
-
 import Card from "./card";
-import { stickyCards } from "@/utils/stickyCards";
+import LastCard from "./lastCard";
 const StickyCards = () => {
   const cardsContainer = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -22,10 +22,11 @@ const StickyCards = () => {
           item={item}
           index={index}
           range={[index * (1 / stickyCards.length), 1]}
-          targetScale={1 - (stickyCards.length - index) * 0.05}
+          targetScale={1 - (stickyCards.length - index) * 0.025}
           progress={scrollYProgress}
         />
       ))}
+      <LastCard progress={scrollYProgress} />
     </div>
   );
 };

@@ -20,7 +20,7 @@ const ServicesWeProvide = () => {
       <div className="h-[72px] rounded-t-[48px] bg-black" />
       <div ref={containerRef} className="relative h-[200vh] bg-black">
         <div className="sticky top-0 h-[100vh] flex flex-col pb-8">
-          <div className="pl-8 font-light text-9xl leading-[166.02px] text-white">
+          <div className="pl-8 mb-12 font-light text-9xl leading-[166.02px] text-white">
             Services we provide
           </div>
           <div className={`w-full flex-1 overflow-hidden`}>

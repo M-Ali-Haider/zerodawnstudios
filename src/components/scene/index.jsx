@@ -12,7 +12,7 @@ export default function Scene({ scrollYProgress }) {
   );
   const containerRef = useRef(null);
   const options = {
-    damping: 20,
+    damping: 15,
   };
   const mouse = {
     x: useSpring(useMotionValue(0), options),
@@ -34,12 +34,6 @@ export default function Scene({ scrollYProgress }) {
     mouse.y.set(0);
   };
 
-  // useEffect(() => {
-  //   const container = containerRef.current;
-  //   container.addEventListener("mousemove", manageMouseMove);
-  //   return () => container.removeEventListener("mousemove", manageMouseMove);
-  // }, []);
-
   useEffect(() => {
     const container = containerRef.current;
     container.addEventListener("mousemove", manageMouseMove);
@@ -55,11 +49,24 @@ export default function Scene({ scrollYProgress }) {
       ref={containerRef}
       className="h-screen min-w-[50vw] max-w-[50vw] relative"
     >
-      <Canvas>
-        <OrbitControls enableZoom={false} enablePan={false} />
+      <Canvas
+        pixelRatio={Math.min(window.devicePixelRatio, 1.5)}
+        antialias={false}
+      >
+        <OrbitControls
+          enableRotate={false}
+          enableZoom={false}
+          enablePan={false}
+        />
         <Environment preset="dawn" />
         <Model rotationZ={rotationZ} rotateX={mouse.y} rotateY={mouse.x} />
       </Canvas>
     </div>
   );
 }
+
+// useEffect(() => {
+//   const container = containerRef.current;
+//   container.addEventListener("mousemove", manageMouseMove);
+//   return () => container.removeEventListener("mousemove", manageMouseMove);
+// }, []);

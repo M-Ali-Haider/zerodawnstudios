@@ -6,7 +6,10 @@ import { useEffect } from "react";
 const LenisScrollProvider = ({ children }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    const lenis = new Lenis();
+    const lenis = new Lenis({
+      lerp: 0.05,
+      wheelMultiplier: 1,
+    });
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);

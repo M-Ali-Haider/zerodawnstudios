@@ -1,13 +1,8 @@
 "use client";
-import {
-  cubicBezier,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "framer-motion";
+import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import styles from "./style.module.css";
 import InsideMask from "./insideMask";
+import styles from "./style.module.css";
 const MaskScroll = () => {
   const container = useRef(null);
   const stickyMask = useRef(null);
@@ -19,20 +14,19 @@ const MaskScroll = () => {
   const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"], {
     ease: cubicBezier(0.32, 0, 0.67, 0),
   });
-  useMotionValueEvent(maskSize, "change", (latest) => {
-    if (stickyMask.current) {
-      stickyMask.current.style.webkitMaskSize = latest;
-      stickyMask.current.style.maskSize = latest;
-    }
-  });
+
   return (
     <div
       ref={container}
       className={`h-[300vh] relative w-full -mt-[calc(300vh)]`}
     >
-      <div ref={stickyMask} className={styles.stickyMask}>
+      <motion.div
+        ref={stickyMask}
+        className={styles.stickyMask}
+        style={{ WebkitMaskSize: maskSize }}
+      >
         <InsideMask />
-      </div>
+      </motion.div>
     </div>
   );
 };

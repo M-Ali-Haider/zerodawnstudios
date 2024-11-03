@@ -16,7 +16,9 @@ const MaskScroll = () => {
     target: container,
     offset: ["start start", "end end"],
   });
-  const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"]);
+  const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"], {
+    ease: cubicBezier(0.32, 0, 0.67, 0),
+  });
   useMotionValueEvent(maskSize, "change", (latest) => {
     if (stickyMask.current) {
       stickyMask.current.style.webkitMaskSize = latest;

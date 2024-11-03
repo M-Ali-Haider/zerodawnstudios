@@ -20,14 +20,14 @@ const LastCard = ({ progress, item }) => {
     <div className={`h-[300vh] w-full flex flex-col items-center`}>
       <div
         ref={cardContainer}
-        className="h-[100vh] flex items-center justify-center font-bold text-3xl sticky top-10 max-w-[950px] w-full"
+        className="h-[100vh] flex items-center justify-center font-bold text-3xl sticky top-10 max-w-[950px] 2xl:max-w-[1120px] w-full"
       >
         <motion.div
           className={`p-6 rounded-3xl w-full aspect-[9/16] md:aspect-[16/9.97] relative z-10`}
           style={{
             scale: cardScale,
             top: `calc(-10% + ${3 * 20}px)`,
-            background: `#f0c807`,
+            background: `#007AFF`,
           }}
         >
           <div className="flex justify-between mb-10">

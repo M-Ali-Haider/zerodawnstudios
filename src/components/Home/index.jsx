@@ -1,16 +1,16 @@
-import HorizontalScroll from "../HorizontalScroll";
-import StickyCards from "../StickyCards";
+import Header from "../Header";
+import Landing from "../Landing";
+import MaskScroll from "../MaskScroll";
+import Projects from "../Projects";
 
 const Home = () => {
   return (
     <>
-      <main className="pt-[calc(76px+50px)] flex flex-col items-center justify-center">
-        <div className="w-full px-6 sm:px-10 flex flex-col items-center justify-center">
-          <StickyCards />
-        </div>
-        <HorizontalScroll />
-        <div className={"h-screen"} />
-      </main>
+      <Header />
+      <Landing />
+      <Projects />
+      <MaskScroll />
+      <div className="bg-purple-500 h-screen"></div>
     </>
   );
 };

@@ -16,8 +16,8 @@ const Scene = dynamic(() => import("@/components/scene/index"), {
         width={500}
         height={500}
         className="w-[30vw]"
-        loading="eager"
         priority
+        loading="eager"
       />
     </div>
   ),

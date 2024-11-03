@@ -15,7 +15,7 @@ const Card = ({ index, range, targetScale, progress, item }) => {
     <div
       ref={cardContainer}
       key={index}
-      className={`h-screen items-center justify-center flex sticky top-10 max-w-[950px] w-full`}
+      className={`h-screen items-center justify-center flex sticky top-10 max-w-[950px] 2xl:max-w-[1120px] w-full`}
     >
       <motion.div
         className={`p-6 rounded-3xl w-full aspect-[9/16] md:aspect-[16/9.97] relative`}

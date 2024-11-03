@@ -16,7 +16,7 @@ const StickyCards = () => {
       ref={cardsContainer}
       className="w-full relative flex flex-col items-center mt-40"
     >
-      {stickyCards.map((item, index) => (
+      {stickyCards.slice(0, 3).map((item, index) => (
         <Card
           key={index}
           item={item}

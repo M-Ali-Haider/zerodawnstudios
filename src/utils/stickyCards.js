@@ -1,8 +1,26 @@
 export const stickyCards = [
-  { bg: "#800080" },
-  { bg: "#f1f1f1" },
-  { bg: "#ff0000" },
-  // { bg: "#f0c807" },
-  // { bg: "#00b496" },
-  // { bg: "#808080" },
+  {
+    title: "Horizon Webworks",
+    type: "UI/UX Design and Development",
+    src: "",
+    bg: "#B3FFCB",
+  },
+  {
+    title: "Horizon Webworks",
+    type: "UI/UX Design and Development",
+    src: "",
+    bg: "#000000",
+  },
+  {
+    title: "Horizon Webworks",
+    type: "UI/UX Design and Development",
+    src: "",
+    bg: "#9DEB0C",
+  },
+  {
+    title: "Horizon Webworks",
+    type: "UI/UX Design and Development",
+    src: "",
+    bg: "#007AFF",
+  },
 ];

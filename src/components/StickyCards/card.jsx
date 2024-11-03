@@ -1,3 +1,4 @@
+import ArrowSVG from "@/assets/StickyCard/arrow";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
@@ -14,26 +15,35 @@ const Card = ({ index, range, targetScale, progress, item }) => {
     <div
       ref={cardContainer}
       key={index}
-      className={`h-screen items-center justify-center flex
-        font-bold text-3xl sticky top-14 max-w-[950px] w-full`}
+      className={`h-screen items-center justify-center flex sticky top-10 max-w-[950px] w-full`}
     >
       <motion.div
-        className={`${
-          index % 2 === 0 ? "text-white" : " text-black"
-        } flex p-6 md:p-16 items-center rounded-3xl justify-center w-full 
-        aspect-[9/16] md:aspect-[16/9.97] relative`}
+        className={`p-6 rounded-3xl w-full aspect-[9/16] md:aspect-[16/9.97] relative`}
         style={{
           scale: cardScale,
-          top: `calc(-10% + ${index * 30}px)`,
+          top: `calc(-10% + ${index * 20}px)`,
           background: `${item.bg}`,
         }}
       >
-        <div className="w-full aspect-[9/16] md:aspect-[16/9] overflow-hidden">
+        <div className="flex justify-between mb-10">
+          <div className="text-white font-normal">
+            <div className="text-sm leading-[18.16px]">{item.type}</div>
+            <div className="text-5xl leading-[62.26px]">{item.title}</div>
+          </div>
+          <ArrowSVG className="w-9 h-9" />
+        </div>
+
+        <div className="w-full aspect-[9/16] md:aspect-[16/7.91] overflow-hidden">
           <motion.div
             style={{ scale: imageScale }}
             className="w-full h-full relative"
           >
-            <Image alt="sticky card image" src="/testImage.webp" fill />
+            <Image
+              alt="sticky card image"
+              src="/testImage.webp"
+              fill
+              className="object-cover"
+            />
           </motion.div>
         </div>
       </motion.div>

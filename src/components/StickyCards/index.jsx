@@ -26,7 +26,7 @@ const StickyCards = () => {
           progress={scrollYProgress}
         />
       ))}
-      <LastCard progress={scrollYProgress} />
+      <LastCard progress={scrollYProgress} item={stickyCards[3]} />
     </div>
   );
 };

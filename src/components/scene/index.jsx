@@ -8,7 +8,7 @@ export default function Scene({ scrollYProgress }) {
   const rotationZ = useTransform(
     scrollYProgress,
     [0, 1],
-    [Math.PI / 4, -Math.PI / 4]
+    [Math.PI / 8, -Math.PI / 8]
   );
   const containerRef = useRef(null);
   const options = {

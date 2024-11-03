@@ -15,9 +15,7 @@ const MaskScroll = () => {
     target: container,
     offset: ["start start", "end end"],
   });
-  const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "130vw"], {
-    ease: cubicBezier(0, 0.55, 0.45, 1),
-  });
+  const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"]);
   useMotionValueEvent(maskSize, "change", (latest) => {
     if (stickyMask.current) {
       stickyMask.current.style.webkitMaskSize = latest;
@@ -30,7 +28,7 @@ const MaskScroll = () => {
       className={`h-[300vh] relative w-full -mt-[calc(300vh)]`}
     >
       <div ref={stickyMask} className={styles.stickyMask}>
-        <div className="w-full h-full bg-red-500 flex items-center justify-center">
+        <div className="w-full h-full bg-white flex items-center justify-center">
           <div className="font-normal text-9xl leading-[166.02px] flex flex-col items-center justify-center">
             <div>Look</div>
             <div>what our clients</div>

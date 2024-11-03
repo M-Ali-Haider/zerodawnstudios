@@ -43,7 +43,12 @@ const LastCard = ({ progress, item }) => {
               style={{ scale: imageScale }}
               className="w-full h-full relative"
             >
-              <Image alt="sticky card image" src="/testImage.webp" fill />
+              <Image
+                alt="sticky card image"
+                src="/testImage.webp"
+                fill
+                className="object-cover"
+              />
             </motion.div>
           </div>
         </motion.div>

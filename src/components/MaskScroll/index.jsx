@@ -7,6 +7,7 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import styles from "./style.module.css";
+import InsideMask from "./insideMask";
 const MaskScroll = () => {
   const container = useRef(null);
   const stickyMask = useRef(null);
@@ -28,13 +29,7 @@ const MaskScroll = () => {
       className={`h-[300vh] relative w-full -mt-[calc(300vh)]`}
     >
       <div ref={stickyMask} className={styles.stickyMask}>
-        <div className="w-full h-full bg-white flex items-center justify-center">
-          <div className="font-normal text-9xl leading-[166.02px] flex flex-col items-center justify-center">
-            <div>Look</div>
-            <div>what our clients</div>
-            <div>have to say</div>
-          </div>
-        </div>
+        <InsideMask />
       </div>
     </div>
   );

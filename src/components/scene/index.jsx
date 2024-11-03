@@ -29,10 +29,25 @@ export default function Scene({ scrollYProgress }) {
     mouse.y.set(y);
   };
 
+  const manageMouseLeave = () => {
+    mouse.x.set(0);
+    mouse.y.set(0);
+  };
+
+  // useEffect(() => {
+  //   const container = containerRef.current;
+  //   container.addEventListener("mousemove", manageMouseMove);
+  //   return () => container.removeEventListener("mousemove", manageMouseMove);
+  // }, []);
+
   useEffect(() => {
     const container = containerRef.current;
     container.addEventListener("mousemove", manageMouseMove);
-    return () => container.removeEventListener("mousemove", manageMouseMove);
+    container.addEventListener("mouseleave", manageMouseLeave);
+    return () => {
+      container.removeEventListener("mousemove", manageMouseMove);
+      container.removeEventListener("mouseleave", manageMouseLeave);
+    };
   }, []);
 
   return (

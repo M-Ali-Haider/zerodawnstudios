@@ -1,10 +1,10 @@
 "use client";
 import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useRef } from "react";
 import LandingTitle from "./landingTitle";
 import WhatWeDo from "./WhatWeDo";
-import dynamic from "next/dynamic";
-import Image from "next/image";
 
 const Scene = dynamic(() => import("@/components/scene/index"), {
   ssr: false,
@@ -33,6 +33,7 @@ const Landing = () => {
   const bgColor = useTransform(scrollYProgress, [0, 1], ["#fff", "#f1f1f1"], {
     ease: cubicBezier(0.61, 1, 0.88, 1),
   });
+
   return (
     <motion.div
       className={`w-full h-[200vh] relative`}
@@ -44,7 +45,7 @@ const Landing = () => {
       >
         <motion.div style={{ x }} className={`w-full flex`}>
           <LandingTitle />
-          <Scene />
+          <Scene scrollYProgress={scrollYProgress} />
           <WhatWeDo />
         </motion.div>
       </div>

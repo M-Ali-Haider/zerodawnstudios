@@ -3,7 +3,7 @@
 import Lenis from "@studio-freight/lenis";
 import { useEffect } from "react";
 
-const LenisScrollProvider = () => {
+const LenisScrollProvider = ({ children }) => {
   useEffect(() => {
     const lenis = new Lenis();
     function raf(time) {
@@ -12,7 +12,7 @@ const LenisScrollProvider = () => {
     }
     requestAnimationFrame(raf);
   }, []);
-  return;
+  return children;
 };
 
 export default LenisScrollProvider;

@@ -1,7 +1,7 @@
 import { useThree } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
 import Meshes from "./meshes";
-const Model = ({ rotateX, rotateY }) => {
+const Model = ({ rotationZ, rotateX, rotateY }) => {
   const { viewport } = useThree();
   return (
     <motion.group
@@ -32,7 +32,7 @@ const Model = ({ rotateX, rotateY }) => {
           rotation={[1.393, 0, -1.802]}
         />
 
-        <Meshes />
+        <Meshes rotationZ={rotationZ} />
       </group>
     </motion.group>
   );

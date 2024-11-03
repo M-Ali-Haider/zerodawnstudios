@@ -1,10 +1,15 @@
 "use client";
-import { Canvas } from "@react-three/fiber";
 import { Environment, OrbitControls } from "@react-three/drei";
-import Model from "./model";
+import { Canvas } from "@react-three/fiber";
+import { useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
-import { useMotionValue, useSpring } from "framer-motion";
-export default function Scene() {
+import Model from "./model";
+export default function Scene({ scrollYProgress }) {
+  const rotationZ = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [Math.PI / 4, -Math.PI / 4]
+  );
   const containerRef = useRef(null);
   const options = {
     damping: 20,
@@ -29,6 +34,7 @@ export default function Scene() {
     container.addEventListener("mousemove", manageMouseMove);
     return () => container.removeEventListener("mousemove", manageMouseMove);
   }, []);
+
   return (
     <div
       ref={containerRef}
@@ -37,7 +43,7 @@ export default function Scene() {
       <Canvas>
         <OrbitControls enableZoom={false} enablePan={false} />
         <Environment preset="dawn" />
-        <Model rotateX={mouse.y} rotateY={mouse.x} />
+        <Model rotationZ={rotationZ} rotateX={mouse.y} rotateY={mouse.x} />
       </Canvas>
     </div>
   );

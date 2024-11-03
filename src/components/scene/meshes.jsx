@@ -1,10 +1,11 @@
 import { useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
+import { motion } from "framer-motion-3d";
 
-const Meshes = () => {
+const Meshes = ({ rotationZ }) => {
   const meshRefs = useRef([]);
-  const { nodes, materials } = useGLTF("/Scene/chips.gltf");
+  const { nodes } = useGLTF("/Scene/chips.gltf");
   useFrame(() => {
     // groupRef.current.rotation.y += 0.0075;
     meshRefs.current.forEach((mesh, index) => {
@@ -14,7 +15,11 @@ const Meshes = () => {
     });
   });
   return (
-    <group rotation={[1.3, -0.1, -0.5]}>
+    <motion.group
+      rotation-x={Math.PI / 2}
+      rotation-y={0}
+      rotation-z={rotationZ}
+    >
       {Array.from({ length: 35 }, (_, index) => (
         <mesh
           key={index}
@@ -27,7 +32,7 @@ const Meshes = () => {
           rotation={getRotation(index)}
         />
       ))}
-    </group>
+    </motion.group>
   );
 };
 

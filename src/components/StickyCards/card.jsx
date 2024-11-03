@@ -43,6 +43,8 @@ const Card = ({ index, range, targetScale, progress, item }) => {
               src="/testImage.webp"
               fill
               className="object-cover"
+              priority
+              loading="eager"
             />
           </motion.div>
         </div>

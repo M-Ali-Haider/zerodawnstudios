@@ -48,6 +48,8 @@ const LastCard = ({ progress, item }) => {
                 src="/testImage.webp"
                 fill
                 className="object-cover"
+                priority
+                loading="eager"
               />
             </motion.div>
           </div>

@@ -14,6 +14,8 @@ const Card = ({ className, item }) => {
             alt="testimonial card image"
             width={48}
             height={48}
+            priority
+            loading="eager"
           />
         </div>
         <div>

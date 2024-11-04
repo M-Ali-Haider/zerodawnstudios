@@ -25,6 +25,10 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        testimonialBorder:
+          "linear-gradient(292.19deg, rgba(186, 186, 186, 0.3) 0%, rgba(62, 62, 62, 0.3) 100%)",
+      },
     },
   },
   plugins: [],

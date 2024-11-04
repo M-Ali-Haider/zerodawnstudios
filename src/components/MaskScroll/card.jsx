@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 const Card = ({ className, item }) => {
   return (
     <div
-      className={`w-[400px] p-8 ${className} ${styles.levitate} relative rounded-2xl`}
+      className={`w-[400px] p-8 ${className} ${styles.levitate} relative rounded-2xl backdrop-blur-3xl border-2 overflow-hidden`}
     >
       <div className="flex gap-[14px] items-center">
         <div className="w-12 h-12 rounded-full overflow-hidden relative">

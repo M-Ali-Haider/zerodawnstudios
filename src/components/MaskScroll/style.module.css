@@ -1,41 +1,23 @@
 .stickyMask {
-  display: flex;
-  overflow: hidden;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
   mask-image: url("/Mask/mask.svg");
-  mask-position: 52.35% center;
+  mask-position: center center;
+  /* mask-position: 52.35% center; */
   mask-repeat: no-repeat;
   mask-size: 0%;
 }
 
 .levitate {
-  overflow: hidden;
-  box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
   animation: float 6s ease-in-out infinite;
-  border: 2px solid;
-  border-image-source: linear-gradient(
-    292.19deg,
-    rgba(186, 186, 186, 0.3) 0%,
-    rgba(62, 62, 62, 0.3) 100%
-  );
-  backdrop-filter: blur(100px);
 }
 
 @keyframes float {
   0% {
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
     transform: translatey(0px);
   }
   50% {
-    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
     transform: translatey(-20px);
   }
   100% {
-    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
     transform: translatey(0px);
   }
 }

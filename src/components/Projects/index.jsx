@@ -1,4 +1,4 @@
-import StickyCards from "../StickyCards";
+import CardsContainer from "./container";
 
 const Projects = () => {
   return (
@@ -6,7 +6,7 @@ const Projects = () => {
       <div className="sticky text-9xl leading-[166.02px] font-light top-0 pl-8">
         Projects
       </div>
-      <StickyCards />
+      <CardsContainer />
     </div>
   );
 };

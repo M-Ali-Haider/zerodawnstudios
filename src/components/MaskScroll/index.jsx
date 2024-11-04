@@ -14,20 +14,21 @@ const MaskScroll = () => {
   const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"], {
     ease: cubicBezier(0.32, 0, 0.67, 0),
   });
-
   return (
-    <div
-      ref={container}
-      className={`h-[300vh] relative w-full -mt-[calc(300vh)]`}
-    >
-      <motion.div
-        ref={stickyMask}
-        className={styles.stickyMask}
-        style={{ WebkitMaskSize: maskSize }}
+    <>
+      <div
+        ref={container}
+        className={`h-[300vh] w-full sticky top-0 -mt-[90vh]`}
       >
-        <InsideMask />
-      </motion.div>
-    </div>
+        <motion.div
+          ref={stickyMask}
+          className={styles.stickyMask}
+          style={{ WebkitMaskSize: maskSize }}
+        >
+          <InsideMask scrollYProgress={scrollYProgress} />
+        </motion.div>
+      </div>
+    </>
   );
 };
 

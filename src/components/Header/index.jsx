@@ -19,24 +19,30 @@ const Header = () => {
         end: `${window.innerHeight}px top`,
         onLeave: () => {
           gsap.to(topHeader.current, {
-            scale: 0,
-            duration: 0.5,
+            // scale: 0,
+            y: "-82px",
+            opacity: 0,
+            duration: 0.3,
             ease: "power1.out",
           });
           gsap.to(bottomHeader.current, {
             scale: 1,
+            opacity: 1,
             duration: 0.5,
             ease: "power1.out",
           });
         },
         onEnterBack: () => {
           gsap.to(topHeader.current, {
-            scale: 1,
-            duration: 0.5,
+            // scale: 1,
+            y: 0,
+            opacity: 1,
+            duration: 0.3,
             ease: "power1.out",
           });
           gsap.to(bottomHeader.current, {
             scale: 0,
+            opacity: 0,
             duration: 0.5,
             ease: "power1.out",
           });

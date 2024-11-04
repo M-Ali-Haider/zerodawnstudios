@@ -6,7 +6,7 @@ import { useRef } from "react";
 const LandingTitle = () => {
   const words = ["ZERO", "DAWN", "STUDIOS"];
   const container = useRef(null);
-  const isInView = useInView(container);
+  const isInView = useInView(container, { once: true });
   return (
     <div
       className="h-screen min-w-[50vw] max-w-[50vw] 
@@ -21,7 +21,6 @@ const LandingTitle = () => {
               variants={slideUp}
               initial="initial"
               animate={isInView ? "open" : "closed"}
-              key={index}
               className=""
             >
               {item}

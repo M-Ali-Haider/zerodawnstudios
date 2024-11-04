@@ -24,6 +24,32 @@ export const slideUp = {
   },
 };
 
+export const slideUpFooter = {
+  initial: {
+    y: "100%",
+  },
+  open: (i) => ({
+    y: 0,
+    transition: { duration: 0.75, delay: 0.2 * i },
+  }),
+  closed: {
+    y: "100%",
+  },
+};
+
+export const slideUpFooterLink = {
+  initial: {
+    y: "100%",
+  },
+  open: (i) => ({
+    y: 0,
+    transition: { duration: 0.75, delay: 0.3 * i },
+  }),
+  closed: {
+    y: "100%",
+  },
+};
+
 export const slideUpDescription = {
   initial: {
     y: "100%",

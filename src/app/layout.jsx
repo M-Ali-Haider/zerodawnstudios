@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${SuisseIntl.className} antialiased`}>
+      <body className={`${SuisseIntl.className} antialiased bg-white`}>
         <ReduxStoreProvider>
           <LenisScrollProvider>{children}</LenisScrollProvider>
           {/* <LocomotiveScroll></LocomotiveScroll> */}

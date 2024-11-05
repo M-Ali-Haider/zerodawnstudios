@@ -1,10 +1,9 @@
 "use client";
-import LogoSVG from "@/assets/Header/logo";
+import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import TopHeader from "./top";
 import BottomHeader from "./bottom";
+import TopHeader from "./top";
 
 const Header = () => {
   const topHeader = useRef(null);

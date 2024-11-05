@@ -9,7 +9,7 @@ const BurgerMenuSVG = (props) => (
   >
     <path
       d="M5.5 29.6667H22M5.5 15H38.5"
-      stroke="black"
+      stroke="white"
       strokeWidth={4}
       strokeLinecap="round"
       strokeLinejoin="round"

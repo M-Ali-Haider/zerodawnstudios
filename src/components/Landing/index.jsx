@@ -47,8 +47,8 @@ const Landing = () => {
       >
         <motion.div style={{ x }} className={`w-full flex`}>
           <LandingTitle />
-          {/* <div className="h-screen min-w-[50vw] max-w-[50vw] relative" /> */}
-          <Scene scrollYProgress={scrollYProgress} />
+          <div className="h-screen min-w-[50vw] max-w-[50vw] relative" />
+          {/* <Scene scrollYProgress={scrollYProgress} /> */}
           <WhatWeDo />
         </motion.div>
       </div>

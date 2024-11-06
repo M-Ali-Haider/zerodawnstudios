@@ -11,7 +11,8 @@ const LenisScrollProvider = ({ children }) => {
 
     if (!lenisRef.current) {
       lenisRef.current = new Lenis({
-        lerp: 0.05,
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       });
       const raf = (time) => {
         lenisRef.current?.raf(time);

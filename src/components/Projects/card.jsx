@@ -1,6 +1,6 @@
 import ArrowSVG from "@/assets/StickyCard/arrow";
-// import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const Card = ({ item, index, range, targetScale, progress }) => {
@@ -9,8 +9,13 @@ const Card = ({ item, index, range, targetScale, progress }) => {
     target: containerRef,
     offset: ["start end", "start start"],
   });
-  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
-  const scale = useTransform(progress, range, [1, targetScale]);
+
+  const options = {
+    easing: cubicBezier(0.61, 1, 0.88, 1),
+  };
+
+  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1], options);
+  const scale = useTransform(progress, range, [1, targetScale], options);
   return (
     <div
       ref={containerRef}
@@ -36,19 +41,15 @@ export default Card;
 const LowerPart = ({ scale }) => {
   return (
     <div className="w-full overflow-hidden flex-1">
-      <motion.div
-        style={{ scale }}
-        className="w-full h-full relative bg-gray-400"
-      >
-        {/* <Image
+      <motion.div style={{ scale }} className="w-full h-full relative">
+        <Image
           alt="sticky card image"
           src="/testImage.webp"
           fill
           className="object-cover"
           priority
           loading="eager"
-          quality={25}
-        /> */}
+        />
       </motion.div>
     </div>
   );

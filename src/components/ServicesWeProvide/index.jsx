@@ -11,9 +11,7 @@ const ServicesWeProvide = () => {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["2.5vw", "-25vw"], {
-    ease: cubicBezier(0.61, 1, 0.88, 1),
-  });
+  const x = useTransform(scrollYProgress, [0, 1], ["2.5vw", "-25vw"]);
   // const xWithOffset = useTransform(x, (value) => `calc(${value} + 32px)`);
   return (
     <>

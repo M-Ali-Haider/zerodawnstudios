@@ -16,9 +16,7 @@ export default function Scene({ scrollYProgress }) {
     [Math.PI / 8, -Math.PI / 8]
   );
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, {
-    // margin: "-50%",
-  });
+  const isInView = useInView(containerRef);
   const options = {
     damping: 15,
   };
@@ -57,7 +55,10 @@ export default function Scene({ scrollYProgress }) {
       ref={containerRef}
       className="h-screen min-w-[50vw] max-w-[50vw] relative"
     >
-      <Canvas dpr={0.9} frameLoop={isInView ? "always" : "never"}>
+      <Canvas
+        dpr={useInView ? 0.9 : 0.1}
+        frameLoop={isInView ? "always" : "never"}
+      >
         <Environment preset="dawn" />
         <Suspense fallback={null}>
           <Model rotationZ={rotationZ} rotateX={mouse.y} rotateY={mouse.x} />
@@ -66,9 +67,3 @@ export default function Scene({ scrollYProgress }) {
     </div>
   );
 }
-
-// useEffect(() => {
-//   const container = containerRef.current;
-//   container.addEventListener("mousemove", manageMouseMove);
-//   return () => container.removeEventListener("mousemove", manageMouseMove);
-// }, []);

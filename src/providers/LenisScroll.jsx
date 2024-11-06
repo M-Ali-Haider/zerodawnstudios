@@ -11,7 +11,7 @@ const LenisScrollProvider = ({ children }) => {
 
     if (!lenisRef.current) {
       lenisRef.current = new Lenis({
-        lerp: 0.065,
+        lerp: 0.05,
       });
       const raf = (time) => {
         lenisRef.current?.raf(time);

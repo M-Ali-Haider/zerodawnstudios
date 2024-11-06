@@ -56,7 +56,7 @@ export default function Scene({ scrollYProgress }) {
       className="h-screen min-w-[50vw] max-w-[50vw] relative"
     >
       <Canvas
-        dpr={useInView ? 0.9 : 0.1}
+        dpr={useInView ? 0.9 : 0}
         frameLoop={isInView ? "always" : "never"}
       >
         <Environment preset="dawn" />

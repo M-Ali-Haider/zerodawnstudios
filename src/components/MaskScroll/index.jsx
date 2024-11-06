@@ -7,7 +7,7 @@ const MaskScroll = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "250vh"],
+    offset: ["start start", "275vh"],
   });
   const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"]);
   // useEffect(() => {

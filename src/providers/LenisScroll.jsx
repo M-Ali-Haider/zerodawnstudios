@@ -7,9 +7,9 @@ const LenisScrollProvider = ({ children }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
     const lenis = new Lenis({
-      lerp: 0.08,
-      wheelMultiplier: 1,
-      duration: 1.2,
+      lerp: 0.05,
+      wheelMultiplier: 0.8,
+      duration: 2,
     });
     function raf(time) {
       lenis.raf(time);

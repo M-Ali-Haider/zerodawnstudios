@@ -7,12 +7,11 @@ const MaskScroll = () => {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start start", "275vh"],
+    offset: ["start start", "250vh"],
   });
   const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"], {
     ease: cubicBezier(0.32, 0, 0.67, 0),
   });
-
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) =>
       console.log(latest)

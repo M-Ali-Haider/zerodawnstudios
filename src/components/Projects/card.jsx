@@ -44,7 +44,7 @@ const LowerPart = ({ scale }) => {
           className="object-cover"
           priority
           loading="eager"
-          quality={50}
+          quality={25}
         />
       </motion.div>
     </div>

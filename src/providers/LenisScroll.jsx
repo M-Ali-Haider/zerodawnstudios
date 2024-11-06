@@ -9,6 +9,7 @@ const LenisScrollProvider = ({ children }) => {
     const lenis = new Lenis({
       lerp: 0.05,
       wheelMultiplier: 1,
+      duration: 0.6,
     });
     function raf(time) {
       lenis.raf(time);

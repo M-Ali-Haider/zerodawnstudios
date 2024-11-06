@@ -1,5 +1,5 @@
 "use client";
-import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import InsideMask from "./insideMask";
 import styles from "./style.module.css";
@@ -9,9 +9,7 @@ const MaskScroll = () => {
     target: container,
     offset: ["start start", "250vh"],
   });
-  const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"], {
-    ease: cubicBezier(0.32, 0, 0.67, 0),
-  });
+  const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"]);
   useEffect(() => {
     const unsubscribe = scrollYProgress.onChange((latest) =>
       console.log(latest)

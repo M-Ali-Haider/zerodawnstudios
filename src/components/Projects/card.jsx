@@ -1,5 +1,5 @@
 import ArrowSVG from "@/assets/StickyCard/arrow";
-import Image from "next/image";
+// import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -36,8 +36,11 @@ export default Card;
 const LowerPart = ({ scale }) => {
   return (
     <div className="w-full overflow-hidden flex-1">
-      <motion.div style={{ scale }} className="w-full h-full relative">
-        <Image
+      <motion.div
+        style={{ scale }}
+        className="w-full h-full relative bg-gray-400"
+      >
+        {/* <Image
           alt="sticky card image"
           src="/testImage.webp"
           fill
@@ -45,7 +48,7 @@ const LowerPart = ({ scale }) => {
           priority
           loading="eager"
           quality={25}
-        />
+        /> */}
       </motion.div>
     </div>
   );

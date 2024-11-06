@@ -1,7 +1,12 @@
 "use client";
 import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useMotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { Suspense, useEffect, useRef } from "react";
 import Model from "./model";
 export default function Scene({ scrollYProgress }) {
@@ -11,6 +16,9 @@ export default function Scene({ scrollYProgress }) {
     [Math.PI / 8, -Math.PI / 8]
   );
   const containerRef = useRef(null);
+  const isInView = useInView(containerRef, {
+    // margin: "-50%",
+  });
   const options = {
     damping: 15,
   };
@@ -49,7 +57,7 @@ export default function Scene({ scrollYProgress }) {
       ref={containerRef}
       className="h-screen min-w-[50vw] max-w-[50vw] relative"
     >
-      <Canvas dpr={0.5}>
+      <Canvas dpr={0.9} frameLoop={isInView ? "always" : "never"}>
         <Environment preset="dawn" />
         <Suspense fallback={null}>
           <Model rotationZ={rotationZ} rotateX={mouse.y} rotateY={mouse.x} />

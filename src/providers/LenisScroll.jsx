@@ -10,10 +10,11 @@ const LenisScrollProvider = ({ children }) => {
     window.scrollTo(0, 0);
 
     if (!lenisRef.current) {
-      lenisRef.current = new Lenis({
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      });
+      // lenisRef.current = new Lenis({
+      //   duration: 1.2,
+      //   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // });
+      lenisRef.current = new Lenis();
       const raf = (time) => {
         lenisRef.current?.raf(time);
         rafHandleRef.current = requestAnimationFrame(raf);

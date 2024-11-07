@@ -5,7 +5,7 @@ import { useRef } from "react";
 const Heading = () => {
   const headingRef = useRef(null);
   const heading = ["P", "r", "o", "j", "e", "c", "t", "s"];
-  const isInView = useInView(headingRef);
+  const isInView = useInView(headingRef, { once: true });
   // useEffect(() => {
   //   console.log(isInView);
   // }, [isInView]);

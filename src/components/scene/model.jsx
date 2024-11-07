@@ -1,13 +1,17 @@
 import { useThree } from "@react-three/fiber";
 import { motion } from "framer-motion-3d";
+import { memo } from "react";
 import Meshes from "./meshes";
-const Model = ({ rotationZ, rotateX, rotateY }) => {
+
+const Model = memo(({ rotationZ, rotateX, rotateY }) => {
   const { viewport } = useThree();
+  const scale = viewport.width / 8;
+
   return (
     <motion.group
       rotation-y={rotateY}
       rotation-x={rotateX}
-      scale={viewport.width / 8}
+      scale={scale}
       dispose={null}
     >
       <group scale={0.01}>
@@ -15,6 +19,7 @@ const Model = ({ rotationZ, rotateX, rotateY }) => {
       </group>
     </motion.group>
   );
-};
+});
 
+Model.displayName = "Model";
 export default Model;

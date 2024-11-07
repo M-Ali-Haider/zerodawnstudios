@@ -29,12 +29,18 @@ const Landing = () => {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"], {
-    ease: cubicBezier(0.61, 1, 0.88, 1),
-  });
-  const bgColor = useTransform(scrollYProgress, [0, 1], ["#fff", "#f1f1f1"], {
-    ease: cubicBezier(0.61, 1, 0.88, 1),
-  });
+
+  const options = {
+    // ease:cubicBezier(0.61, 1, 0.88, 1)
+  };
+
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"], options);
+  const bgColor = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["#fff", "#f1f1f1"],
+    options
+  );
 
   return (
     <motion.div

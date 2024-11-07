@@ -1,8 +1,9 @@
-// import LocomotiveScroll from "@/providers/LocomotiveScroll";
-import ReduxStoreProvider from "@/providers/ReduxProvider";
+import LenisScrollProvider from "@/providers/LenisScroll";
 import { SuisseIntl } from "./fonts/fonts";
 import "./globals.css";
-import LenisScrollProvider from "@/providers/LenisScroll";
+// import { LoadingProvider } from "./loading-context";
+// import LayoutWrapper from "@/providers/layout-wrapper";
+// import LoadingScreen from "@/components/LoadingScreen";
 export const metadata = {
   title: "Zero Dawn Studios",
   description: "Zero Dawn Studios Portfolio",
@@ -11,11 +12,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${SuisseIntl.className} antialiased bg-white`}>
-        <ReduxStoreProvider>
-          <LenisScrollProvider>{children}</LenisScrollProvider>
-          {/* <LocomotiveScroll></LocomotiveScroll> */}
-        </ReduxStoreProvider>
+      <body className={`${SuisseIntl.className} bg-white`}>
+        {/* <LoadingProvider> */}
+        {/* <LayoutWrapper> */}
+        <LenisScrollProvider>
+          {/* <LoadingScreen /> */}
+          {children}
+        </LenisScrollProvider>
+        {/* </LayoutWrapper> */}
+        {/* </LoadingProvider> */}
       </body>
     </html>
   );

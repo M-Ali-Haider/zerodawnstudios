@@ -9,14 +9,7 @@ const MaskScroll = () => {
     target: container,
     offset: ["start start", "275vh"],
   });
-  const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "150vw"]);
-  // useEffect(() => {
-  //   const unsubscribe = scrollYProgress.onChange((latest) =>
-  //     console.log(latest)
-  //   );
-  //   return () => unsubscribe();
-  // }, [scrollYProgress]);
-
+  const maskSize = useTransform(scrollYProgress, [0, 1], ["0vw", "200vw"]);
   return (
     <>
       <div

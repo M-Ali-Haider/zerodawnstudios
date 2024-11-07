@@ -31,7 +31,7 @@ const Landing = () => {
   });
 
   const options = {
-    // ease:cubicBezier(0.61, 1, 0.88, 1)
+    ease: cubicBezier(0.61, 1, 0.88, 1),
   };
 
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"], options);

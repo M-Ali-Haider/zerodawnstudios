@@ -14,7 +14,7 @@ const Card = ({ item, index, range, targetScale, progress }) => {
     // easing: cubicBezier(0.61, 1, 0.88, 1),
   };
 
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.5, 1], options);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1], options);
   const scale = useTransform(progress, range, [1, targetScale], options);
   return (
     <div

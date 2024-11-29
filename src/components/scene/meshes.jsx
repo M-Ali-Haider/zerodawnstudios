@@ -86,49 +86,56 @@ const ROTATIONS = Array.from({ length: 35 }, (_, index) => {
   return rotations[index];
 });
 
-const Meshes = memo(({ rotationZ }) => {
-  const meshRefs = useRef([]);
-  const { nodes } = useGLTF("/Scene/chips.gltf", true);
-  const lastTime = useRef(0);
+const Meshes = memo(
+  (
+    {
+      // rotationZ
+    }
+  ) => {
+    const meshRefs = useRef([]);
+    const { nodes } = useGLTF("/Scene/chips.gltf", true);
+    const lastTime = useRef(0);
 
-  useFrame((_, delta) => {
-    const currentTime = performance.now();
-    if (currentTime - lastTime.current < 16) return;
-    meshRefs.current.forEach((mesh, index) => {
-      if (mesh) {
-        mesh.rotation.z += (0.01 + (index % 2 === 0 ? 0.01 : 0)) * delta * 30;
-      }
+    useFrame((_, delta) => {
+      const currentTime = performance.now();
+      if (currentTime - lastTime.current < 16) return;
+      meshRefs.current.forEach((mesh, index) => {
+        if (mesh) {
+          mesh.rotation.z += (0.01 + (index % 2 === 0 ? 0.01 : 0)) * delta * 30;
+        }
+      });
+      lastTime.current = currentTime;
     });
-    lastTime.current = currentTime;
-  });
 
-  const meshes = useMemo(
-    () =>
-      Array.from({ length: 35 }, (_, index) => (
-        <mesh
-          key={index}
-          ref={(el) => (meshRefs.current[index] = el)}
-          castShadow={false}
-          receiveShadow={false}
-          geometry={nodes[`mesh_0_instance_${index}`].geometry}
-          material={nodes[`mesh_0_instance_${index}`].material}
-          position={POSITIONS[index]}
-          rotation={ROTATIONS[index]}
-        />
-      )),
-    [nodes]
-  );
+    const meshes = useMemo(
+      () =>
+        Array.from({ length: 35 }, (_, index) => (
+          <mesh
+            key={index}
+            ref={(el) => (meshRefs.current[index] = el)}
+            castShadow={false}
+            receiveShadow={false}
+            geometry={nodes[`mesh_0_instance_${index}`].geometry}
+            material={nodes[`mesh_0_instance_${index}`].material}
+            position={POSITIONS[index]}
+            rotation={ROTATIONS[index]}
+          />
+        )),
+      [nodes]
+    );
 
-  return (
-    <motion.group
-      rotation-x={Math.PI / 2}
-      rotation-y={0}
-      rotation-z={rotationZ}
-    >
-      {meshes}
-    </motion.group>
-  );
-});
+    return (
+      <motion.group
+        rotation-x={Math.PI / 2}
+        rotation-y={0}
+        rotation-z={0}
+        // rotation-z={rotationZ}
+      >
+        {meshes}
+      </motion.group>
+    );
+  }
+);
 
 Meshes.displayName = "Meshes";
 export default Meshes;

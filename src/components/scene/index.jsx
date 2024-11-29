@@ -9,14 +9,16 @@ import {
 } from "framer-motion";
 import { Suspense, useCallback, useEffect, useMemo, useRef } from "react";
 import Model from "./model";
+
 export default function Scene({ scrollYProgress }) {
-  const rotationZ = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [Math.PI / 8, -Math.PI / 8]
-  );
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { margin: "-20%" });
+
+  // const rotationZ = useTransform(
+  //   scrollYProgress,
+  //   [0, 1],
+  //   [Math.PI / 8, -Math.PI / 8]
+  // );
 
   const dpr = useMemo(() => {
     return isInView ? [0.95, 1] : [0, 0];
@@ -63,18 +65,18 @@ export default function Scene({ scrollYProgress }) {
     mouseY.set(0);
   }, [mouseX, mouseY]);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+  // useEffect(() => {
+  //   const container = containerRef.current;
+  //   if (!container) return;
 
-    container.addEventListener("mousemove", manageMouseMove);
-    container.addEventListener("mouseleave", manageMouseLeave);
+  //   container.addEventListener("mousemove", manageMouseMove);
+  //   container.addEventListener("mouseleave", manageMouseLeave);
 
-    return () => {
-      container.removeEventListener("mousemove", manageMouseMove);
-      container.removeEventListener("mouseleave", manageMouseLeave);
-    };
-  }, [manageMouseMove, manageMouseLeave]);
+  //   return () => {
+  //     container.removeEventListener("mousemove", manageMouseMove);
+  //     container.removeEventListener("mouseleave", manageMouseLeave);
+  //   };
+  // }, [manageMouseMove, manageMouseLeave]);
 
   return (
     <div
@@ -83,12 +85,17 @@ export default function Scene({ scrollYProgress }) {
     >
       <Canvas
         dpr={dpr}
-        frameLoop={isInView ? "demand" : "never"}
+        frameloop={isInView ? "demand" : "never"}
         performance={{ min: 0.5 }}
+        onCreated={() => {}}
       >
         <Environment preset="dawn" />
         <Suspense fallback={null}>
-          <Model rotationZ={rotationZ} rotateX={mouse.y} rotateY={mouse.x} />
+          <Model
+          //  rotationZ={rotationZ}
+          // rotateX={mouse.y}
+          // rotateY={mouse.x}
+          />
         </Suspense>
       </Canvas>
     </div>

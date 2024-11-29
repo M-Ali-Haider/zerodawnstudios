@@ -10,7 +10,7 @@ const Scene = dynamic(() => import("@/components/scene/index"), {
   ssr: false,
   loading: () => (
     <div className="h-screen min-w-[50vw] max-w-[50vw] relative flex items-center justify-center">
-      <Image
+      <Imag
         src="/Scene/chips.png"
         alt="replacer image while actual 3d loading"
         width={500}
@@ -54,7 +54,9 @@ const Landing = () => {
         <motion.div style={{ x }} className={`w-full flex`}>
           <LandingTitle />
           {/* <div className="h-screen min-w-[50vw] max-w-[50vw] relative" /> */}
-          <Scene scrollYProgress={scrollYProgress} />
+          <Scene
+          //  scrollYProgress={scrollYProgress}
+          />
           <WhatWeDo />
         </motion.div>
       </div>

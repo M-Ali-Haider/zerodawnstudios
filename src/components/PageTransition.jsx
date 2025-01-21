@@ -4,8 +4,11 @@ const customEase2 = "custom,0.33, 1, 0.68, 1";
 
 export const animatePageIn = (width, height) => {
   const bannerTwo = document.getElementById("banner-2");
+  //this is the svg id
   const bannerOne = document.getElementById("banner-1");
+  //this is the id of the path inside svg
   const bannerThree = document.getElementById("banner-3");
+
   if (bannerOne && bannerTwo && bannerThree) {
     const tl = gsap.timeline();
     tl.set(bannerOne, {
@@ -63,7 +66,6 @@ export const animatePageOut = (href, router, width, height) => {
 
   if (bannerOne && bannerTwo && bannerThree) {
     const tl = gsap.timeline();
-    4;
     tl.set(bannerTwo, {
       opacity: 0,
       top: "40%",

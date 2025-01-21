@@ -83,7 +83,7 @@ export default function Scene({ scrollYProgress }) {
     >
       <Canvas
         dpr={dpr}
-        frameLoop={isInView ? "demand" : "never"}
+        frameloop={isInView ? "always" : "never"}
         performance={{ min: 0.5 }}
       >
         <Environment preset="dawn" />

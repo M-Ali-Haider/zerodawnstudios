@@ -33,7 +33,7 @@ export default function Template({ children }) {
         id="banner-2"
         className="text-6xl fixed left-[50%] top-[40%] -translate-x-[50%] text-white z-[100] pointer-events-none"
       >
-        Loading... {progress}%
+        Loading... {Math.round(progress)}%
       </div>
       {children}
     </>

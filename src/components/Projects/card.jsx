@@ -22,7 +22,7 @@ const Card = ({ item, index, range, targetScale, progress }) => {
       className={`h-screen items-center flex justify-center sticky top-0`}
     >
       <motion.div
-        className="p-6 w-[90vw] h-[82vh] relative rounded-3xl flex xs:flex-col flex-col-reverse xs:gap-10 gap-8"
+        className="p-6 w-[94vw] h-auto aspect-[358/557] xs:w-[90vw] xs:h-[82vh] relative rounded-3xl flex xs:flex-col flex-col-reverse xs:gap-10 gap-8"
         style={{
           backgroundColor: item.bg,
           top: `calc(${index * 25}px)`,

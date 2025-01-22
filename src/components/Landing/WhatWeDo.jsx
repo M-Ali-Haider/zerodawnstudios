@@ -1,4 +1,5 @@
 "use client";
+import { scaleAnimationButton } from "@/utils/scaleAnim";
 import { slideUpDescription } from "@/utils/textAnim";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -48,12 +49,15 @@ const WhatWeDo = () => {
             </div>
           ))}
         </div>
-        <button
+        <motion.button
+          variants={scaleAnimationButton}
+          initial="initial"
+          animate={isInView ? "open" : "closed"}
           className="mt-9 font-normal text-2xl leading-[31.13px] 
             border border-black w-full rounded-full py-[74px]"
         >
           Contact Us
-        </button>
+        </motion.button>
       </div>
     </div>
   );

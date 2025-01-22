@@ -10,9 +10,9 @@ const FooterLink = ({ item, index }) => {
   return (
     <div
       ref={container}
-      className={`${
-        index === 0 && "border-t"
-      } border-b border-white flex items-center justify-between py-9`}
+      className={`${index === 0 && "border-t"} ${
+        index !== 3 && "border-b border-white"
+      } flex items-center justify-between py-9`}
     >
       <div className="overflow-hidden">
         <motion.div

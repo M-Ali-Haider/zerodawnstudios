@@ -19,7 +19,7 @@ const FooterHeading = ({ className, title }) => {
             variants={slideUpFooter}
             initial="initial"
             animate={isInView ? "open" : "closed"}
-            className={index !== array.length - 1 && "mb-3"}
+            className={index !== array.length - 1 ? "mb-3" : ""}
           >
             {item}&nbsp;
           </motion.div>

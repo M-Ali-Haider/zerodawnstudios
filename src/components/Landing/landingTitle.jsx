@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import DreamsLine from "./dreams";
+import { scaleAnimation } from "@/utils/scaleAnim";
 
 const LandingTitle = () => {
   const words = ["DAWN", "STUDIOS"];
@@ -50,7 +51,7 @@ const LandingTitle = () => {
           <div className="overflow-hidden flex items-center justify-center flex-1 max-w-[288px] aspect-[288/95]">
             <motion.div
               custom={2}
-              variants={slideUpLanding}
+              variants={scaleAnimation}
               initial="initial"
               animate={canAnimate ? "open" : "closed"}
               className="relative w-full h-full"

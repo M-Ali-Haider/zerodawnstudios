@@ -1,4 +1,4 @@
-import { slideUpLanding } from "@/utils/textAnim";
+import { slideUpDreams } from "@/utils/textAnim";
 import { motion } from "framer-motion";
 
 const DreamsLine = ({ canAnimate }) => {
@@ -14,7 +14,7 @@ const DreamsLine = ({ canAnimate }) => {
           <div key={index} className="overflow-hidden">
             <motion.div
               custom={index + 4}
-              variants={slideUpLanding}
+              variants={slideUpDreams}
               initial="initial"
               animate={canAnimate ? "open" : "closed"}
               className=""
@@ -29,7 +29,7 @@ const DreamsLine = ({ canAnimate }) => {
           <div key={index} className="overflow-hidden">
             <motion.div
               custom={index + 8}
-              variants={slideUpLanding}
+              variants={slideUpDreams}
               initial="initial"
               animate={canAnimate ? "open" : "closed"}
               className=""

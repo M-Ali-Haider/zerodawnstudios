@@ -4,7 +4,7 @@ import FooterHeading from "../Headings/footerHeading";
 import FooterLink from "./link";
 const ContactUs = () => {
   return (
-    <div className="pt-16 bg-black">
+    <div className="pt-16 bg-black min-h-screen">
       <FooterHeading title={"Contact Us"} className={"mb-8 pl-8"} />
       <div className="px-4 xs:px-8">
         {contactUsLinks.map((item, index) => (

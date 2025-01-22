@@ -10,7 +10,7 @@ const FooterHeading = ({ className, title }) => {
   return (
     <div
       ref={containerRef}
-      className={`font-light text-9xl leading-[166.02px] text-white ${className} flex`}
+      className={`font-light text-7xl ml:text-[84px] xs:text-8xl md:text-9xl leading-[166.02px] text-white ${className} flex flex-wrap`}
     >
       {array.map((item, index) => (
         <div key={index} className="overflow-hidden">

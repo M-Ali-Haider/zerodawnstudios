@@ -23,32 +23,35 @@ const InsideMask = ({ scrollYProgress }) => {
     3: scale9,
   };
   return (
-    <div className="w-full h-full bg-white relative">
-      <motion.div
-        style={{ scale: scale5 }}
-        className="w-full h-full absolute top-0 flex items-center justify-center"
-      >
-        <div className="font-normal text-9xl leading-[166.02px] flex flex-col items-center justify-center">
-          <div>Look</div>
-          <div>what our clients</div>
-          <div>have to say</div>
-        </div>
-      </motion.div>
-
-      {maskCards.map((item, index) => (
+    <>
+      <div className="w-full h-full bg-white xl:hidden"></div>
+      <div className="w-full h-full bg-white relative hidden xl:block">
         <motion.div
-          style={{ scale: scaleMap[index] }}
-          key={index}
+          style={{ scale: scale5 }}
           className="w-full h-full absolute top-0 flex items-center justify-center"
         >
-          <Card
-            item={item}
-            className={classNames[index]}
-            scale={scaleMap[index]}
-          />
+          <div className="font-normal text-9xl leading-[166.02px] flex flex-col items-center justify-center">
+            <div>Look</div>
+            <div>what our clients</div>
+            <div>have to say</div>
+          </div>
         </motion.div>
-      ))}
-    </div>
+
+        {maskCards.map((item, index) => (
+          <motion.div
+            style={{ scale: scaleMap[index] }}
+            key={index}
+            className="w-full h-full absolute top-0 flex items-center justify-center"
+          >
+            <Card
+              item={item}
+              className={classNames[index]}
+              scale={scaleMap[index]}
+            />
+          </motion.div>
+        ))}
+      </div>
+    </>
   );
 };
 

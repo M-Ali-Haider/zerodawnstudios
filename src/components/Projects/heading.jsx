@@ -22,7 +22,7 @@ const Heading = () => {
             initial="initial"
             animate={isInView ? "open" : "closed"}
           >
-            {item}
+            {item}&nbsp;
           </motion.div>
         </div>
       ))}

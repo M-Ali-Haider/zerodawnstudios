@@ -10,7 +10,7 @@ module.exports = {
       "olivier-ease": "cubic-bezier(0.76,0,0.24,1)",
     },
     screens: {
-      ml: "420px",
+      ml: "374px",
       xs: "550px",
       sm: "640px",
       md: "768px",

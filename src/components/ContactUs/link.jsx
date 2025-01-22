@@ -19,12 +19,12 @@ const FooterLink = ({ item, index }) => {
           variants={slideUpFooterLink}
           initial="initial"
           animate={isInView ? "open" : "closed"}
-          className="text-5xl leading-[62.26px] text-white font-light"
+          className="text-[34px] leading-[44.1px] xs:text-5xl xs:leading-[62.26px] text-white font-light"
         >
           {item.title}
         </motion.div>
       </div>
-      <ArrowSVG className="w-9 h-9" />
+      <ArrowSVG className="w-[26px] h-[26px] xs:w-9 xs:h-9" />
     </div>
   );
 };

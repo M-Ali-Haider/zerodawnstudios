@@ -21,6 +21,7 @@ module.exports = {
     extend: {
       fontFamily: {
         suisseIntl: ["var(--font-suisseIntl)"],
+        swearDisplay: ["var(--font-swearDisplay)"],
       },
       colors: {
         background: "var(--background)",

@@ -12,10 +12,12 @@ const WhatWeDo = () => {
   return (
     <div
       ref={container}
-      className="flex flex-col justify-center 
-       xs:h-screen pb-16 xs:pb-0
+      className="flex flex-col  
+       h-screen
+       items-center xl:items-start
        w-full xl:w-auto xl:min-w-[50vw] xl:max-w-[50vw]
-       px-4 xs:px-0"
+       px-4 xs:px-0
+       justify-center"
     >
       <div className="max-w-[544px] font-light">
         <div className="text-xs xs:text-lg xs:leading-[23.35px] flex">

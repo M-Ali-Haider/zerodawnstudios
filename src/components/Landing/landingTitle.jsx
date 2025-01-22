@@ -4,6 +4,7 @@ import { useProgress } from "@react-three/drei";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import DreamsLine from "./dreams";
 
 const LandingTitle = () => {
   const words = ["DAWN", "STUDIOS"];
@@ -72,6 +73,7 @@ const LandingTitle = () => {
           </div>
         ))}
       </div>
+      <DreamsLine canAnimate={canAnimate} />
     </div>
   );
 };

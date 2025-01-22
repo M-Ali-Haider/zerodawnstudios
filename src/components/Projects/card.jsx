@@ -22,7 +22,7 @@ const Card = ({ item, index, range, targetScale, progress }) => {
       className={`h-screen items-center flex justify-center sticky top-0`}
     >
       <motion.div
-        className="p-6 w-[90vw] h-[82vh] relative rounded-3xl flex flex-col"
+        className="p-6 w-[90vw] h-[82vh] relative rounded-3xl flex xs:flex-col flex-col-reverse xs:gap-10 gap-8"
         style={{
           backgroundColor: item.bg,
           top: `calc(${index * 25}px)`,
@@ -40,7 +40,7 @@ export default Card;
 
 const LowerPart = ({ scale }) => {
   return (
-    <div className="w-full overflow-hidden flex-1">
+    <div className="w-full overflow-hidden flex-1 rounded-2xl">
       <motion.div style={{ scale }} className="w-full h-full relative">
         <Image
           alt="sticky card image"
@@ -57,10 +57,14 @@ const LowerPart = ({ scale }) => {
 
 const UpperPart = ({ type, title }) => {
   return (
-    <div className="flex justify-between mb-10">
+    <div className="flex justify-between">
       <div className="text-white font-normal">
-        <div className="text-sm leading-[18.16px]">{type}</div>
-        <div className="text-5xl leading-[62.26px]">{title}</div>
+        <div className="text-xs leading-[15.56px] xs:text-sm xs:leading-[18.16px]">
+          {type}
+        </div>
+        <div className="text-2xl leading-[31.13px] xs:text-5xl xs:leading-[62.26px]">
+          {title}
+        </div>
       </div>
       <ArrowSVG className="w-9 h-9" />
     </div>

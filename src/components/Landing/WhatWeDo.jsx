@@ -13,7 +13,7 @@ const WhatWeDo = () => {
     <div
       ref={container}
       className="flex flex-col  
-       h-screen
+       xs:h-screen xs:pb-0 pb-20
        items-center xl:items-start
        w-full xl:w-auto xl:min-w-[50vw] xl:max-w-[50vw]
        px-4 xs:px-0

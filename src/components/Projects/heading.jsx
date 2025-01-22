@@ -4,15 +4,15 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 const Heading = () => {
   const headingRef = useRef(null);
-  const heading = ["P", "r", "o", "j", "e", "c", "t", "s"];
+  // const heading = ["P", "r", "o", "j", "e", "c", "t", "s"];
+  const heading = ["Featured", "Projects"];
   const isInView = useInView(headingRef, { once: true });
-  // useEffect(() => {
-  //   console.log(isInView);
-  // }, [isInView]);
   return (
     <div
       ref={headingRef}
-      className="sticky text-9xl leading-[166.02px] font-light top-0 pl-8 flex"
+      className="sticky font-light top-0 flex flex-wrap
+      text-7xl ml:text-[84px] xs:text-8xl md:text-9xl
+      px-4 xs:pl-8"
     >
       {heading.map((item, index) => (
         <div key={index} className="overflow-hidden">

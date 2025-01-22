@@ -58,7 +58,7 @@ const Landing = () => {
       <motion.div
         className={`w-full xl:h-[200vh] relative`}
         ref={containerRef}
-        style={{ backgroundColor: bgColor }}
+        style={{ backgroundColor: isLargeScreen ? bgColor : "#fff" }}
       >
         <div
           className={`w-full xl:sticky xl:top-0 xl:h-screen overflow-hidden xl:flex xl:items-center xl:justify-center`}

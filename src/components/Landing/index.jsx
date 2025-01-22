@@ -2,7 +2,7 @@
 import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import LandingTitle from "./landingTitle";
 import WhatWeDo from "./WhatWeDo";
 
@@ -25,6 +25,17 @@ const Scene = dynamic(() => import("@/components/scene/index"), {
 
 const Landing = () => {
   const containerRef = useRef(null);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1280);
+    };
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -43,22 +54,26 @@ const Landing = () => {
   );
 
   return (
-    <motion.div
-      className={`w-full h-[200vh] relative`}
-      ref={containerRef}
-      style={{ backgroundColor: bgColor }}
-    >
-      <div
-        className={`sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center`}
+    <>
+      <motion.div
+        className={`w-full xl:h-[200vh] relative`}
+        ref={containerRef}
+        style={{ backgroundColor: bgColor }}
       >
-        <motion.div style={{ x }} className={`w-full flex`}>
-          <LandingTitle />
-          {/* <div className="h-screen min-w-[50vw] max-w-[50vw] relative" /> */}
-          <Scene scrollYProgress={scrollYProgress} />
-          <WhatWeDo />
-        </motion.div>
-      </div>
-    </motion.div>
+        <div
+          className={`w-full xl:sticky xl:top-0 xl:h-screen overflow-hidden xl:flex xl:items-center xl:justify-center`}
+        >
+          <motion.div
+            style={{ x: isLargeScreen ? x : "0%" }}
+            className={`w-full xl:flex`}
+          >
+            <LandingTitle />
+            <Scene scrollYProgress={scrollYProgress} />
+            <WhatWeDo />
+          </motion.div>
+        </div>
+      </motion.div>
+    </>
   );
 };
 

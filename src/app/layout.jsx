@@ -9,9 +9,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${SuisseIntl.className} ${SwearDisplay.variable} bg-white`}
-      >
+      <body className={`${SuisseIntl.className} ${SwearDisplay.variable}`}>
         <LenisScrollProvider>{children}</LenisScrollProvider>
       </body>
     </html>

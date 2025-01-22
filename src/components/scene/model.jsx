@@ -5,7 +5,7 @@ import Meshes from "./meshes";
 
 const Model = memo(({ rotationZ, rotateX, rotateY }) => {
   const { viewport } = useThree();
-  const scale = viewport.width / 8;
+  const scale = viewport.width < 4 ? viewport.width / 5 : viewport.width / 8;
   return (
     <motion.group
       rotation-y={rotateY}

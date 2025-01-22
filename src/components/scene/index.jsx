@@ -81,8 +81,7 @@ export default function Scene({ scrollYProgress }) {
       ref={containerRef}
       className="relative
        w-full xl:w-auto xl:min-w-[50vw] xl:max-w-[50vw] 
-       h-screen
-       pointer-events-none xs:pointer-events-auto"
+       h-screen"
     >
       <Canvas
         dpr={dpr}

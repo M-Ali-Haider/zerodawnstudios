@@ -10,7 +10,7 @@ const FooterHeading = ({ className, title }) => {
   return (
     <div
       ref={containerRef}
-      className={`font-light text-7xl ml:text-[84px] xs:text-8xl md:text-9xl leading-[166.02px] text-white ${className} flex flex-wrap`}
+      className={`font-light text-[76px] leading-none ml:text-[84px] xs:text-8xl md:text-9xl text-white ${className} flex flex-wrap`}
     >
       {array.map((item, index) => (
         <div key={index} className="overflow-hidden">
@@ -19,6 +19,7 @@ const FooterHeading = ({ className, title }) => {
             variants={slideUpFooter}
             initial="initial"
             animate={isInView ? "open" : "closed"}
+            className={index !== array.length && "mb-4"}
           >
             {item}&nbsp;
           </motion.div>

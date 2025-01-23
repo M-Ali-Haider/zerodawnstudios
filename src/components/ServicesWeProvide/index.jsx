@@ -8,28 +8,11 @@ import { services } from "@/utils/services";
 
 const ServicesWeProvide = () => {
   const containerRef = useRef(null);
-  const [range, setRange] = useState(["2.5vw", "-25vw"]);
+  const cardRef = useRef(null);
+  const boxRef = useRef(null);
 
-  useEffect(() => {
-    const updateRange = () => {
-      if (window.innerWidth <= 320) {
-        setRange(["2.5vw", "-200vw"]);
-      } else if (window.innerWidth <= 375) {
-        setRange(["2.5vw", "-197.5vw"]);
-      } else if (window.innerWidth <= 550) {
-        setRange(["2.5vw", "-195vw"]);
-      } else if (window.innerWidth < 640) {
-        setRange(["2.5vw", "-192.5vw"]);
-      } else if (window.innerWidth < 1024) {
-        setRange(["2.5vw", "-120vw"]);
-      } else {
-        setRange(["2.5vw", "-25vw"]);
-      }
-    };
-    updateRange();
-    window.addEventListener("resize", updateRange);
-    return () => window.removeEventListener("resize", updateRange);
-  }, []);
+  const [cardWidth, setCardWidth] = useState(0);
+  const [boxWidth, setBoxWidth] = useState(0);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -38,27 +21,57 @@ const ServicesWeProvide = () => {
   const options = {
     ease: cubicBezier(0.61, 1, 0.88, 1),
   };
-  const x = useTransform(scrollYProgress, [0, 1], range, options);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["32px", `${boxWidth - (104 + cardWidth * 4)}px`],
+    options
+  );
+
+  useEffect(() => {
+    const updateWidths = () => {
+      if (cardRef.current) {
+        const width = cardRef.current.getBoundingClientRect().width;
+        setCardWidth(width);
+      }
+      if (boxRef.current) {
+        const width = boxRef.current.getBoundingClientRect().width;
+        setBoxWidth(width);
+      }
+    };
+    updateWidths();
+    window.addEventListener("resize", updateWidths);
+    return () => window.removeEventListener("resize", updateWidths);
+  }, []);
+
   return (
     <>
       <div className="h-[72px] rounded-t-[48px] bg-black" />
+      <FooterHeading
+        className={`pl-8 flex services:hidden bg-black`}
+        title={"Our Services"}
+      />
       <div
         ref={containerRef}
         className="relative bg-black h-[300vh] sm:h-[200vh]"
       >
-        <div className="sticky top-0 h-[100vh] flex flex-col pb-8">
+        <div className="sticky top-0 h-[100vh] flex flex-col pb-12">
           <FooterHeading
-            className={`pl-8 mb-12 hidden services:flex`}
+            className={`pl-8 my-6 hidden services:flex`}
             title={"Services we provide"}
           />
-          <FooterHeading
-            className={`pl-8 mb-12 flex services:hidden`}
-            title={"Our Services"}
-          />
-          <div className={`w-full flex-1 overflow-hidden`}>
-            <motion.div style={{ x }} className={`w-full h-full flex gap-6`}>
+          <div className={`w-full flex-1 overflow-hidden flex items-center`}>
+            <motion.div
+              ref={boxRef}
+              style={{ x }}
+              className={`w-full max-h-[517px] 2xl:max-h-[652px] h-full flex gap-6`}
+            >
               {services.map((item, index) => (
-                <Card key={index} item={item} />
+                <Card
+                  propRef={index === 0 ? cardRef : null}
+                  key={index}
+                  item={item}
+                />
               ))}
             </motion.div>
           </div>

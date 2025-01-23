@@ -2,9 +2,9 @@ import { maskCards } from "@/utils/maskCards";
 import { motion, useTransform } from "framer-motion";
 import Card from "./card";
 const classNames = [
-  "-left-[30%] -top-[30%]",
+  "-left-[30%] -top-[27%]",
   "left-[30%] -top-[20%]",
-  "-left-[35%] top-[30%]",
+  "-left-[32.5%] top-[30%]",
   "top-[28%] left-[25%]",
 ];
 
@@ -26,6 +26,10 @@ const InsideMask = ({ scrollYProgress }) => {
     <>
       <div className="w-full h-full bg-white xl:hidden"></div>
       <div className="w-full h-full bg-white relative hidden xl:block">
+        {/* Gradient */}
+        <div className="absolute aspect-[777/798] bg-[#FFE5CB] h-[70%] bottom-0 left-0 rounded-[100%] blur-3xl opacity-70" />
+        <div className="absolute aspect-[1311/522] bg-[#E3D2C1] w-[80%] bottom-0 right-0 rounded-[100%] blur-3xl opacity-70" />
+
         <motion.div
           style={{ scale: scale5 }}
           className="w-full h-full absolute top-0 flex items-center justify-center"

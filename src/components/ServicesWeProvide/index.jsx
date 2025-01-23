@@ -48,8 +48,12 @@ const ServicesWeProvide = () => {
       >
         <div className="sticky top-0 h-[100vh] flex flex-col pb-8">
           <FooterHeading
-            className={`pl-8 mb-12`}
+            className={`pl-8 mb-12 hidden services:flex`}
             title={"Services we provide"}
+          />
+          <FooterHeading
+            className={`pl-8 mb-12 flex services:hidden`}
+            title={"Our Services"}
           />
           <div className={`w-full flex-1 overflow-hidden`}>
             <motion.div style={{ x }} className={`w-full h-full flex gap-6`}>

@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 const Card = ({ className, item }) => {
   return (
     <div
-      className={`w-[400px] p-8 ${className} ${styles.levitate} relative rounded-2xl bg-white border-2 overflow-hidden`}
+      className={`w-[400px] p-8 ${className} ${styles.levitate} bg-white/50 backdrop-blur-2xl relative rounded-2xl border-2 overflow-hidden`}
     >
       <div className="flex gap-[14px] items-center">
         <UpworkSVG className="w-12 h-12" />

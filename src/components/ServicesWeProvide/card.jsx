@@ -12,7 +12,6 @@ const Card = ({ item }) => {
         <div className="text-base services:text-2xl services:leading-[31.13px] font-light mb-4 services:mb-6">
           {item.description}
         </div>
-        <div className="text-xs services:text-base">LEARN MORE &#10140; </div>
       </div>
     </div>
   );

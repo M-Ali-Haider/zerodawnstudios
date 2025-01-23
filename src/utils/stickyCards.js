@@ -3,7 +3,7 @@ export const stickyCards = [
     title: "Horizon Webworks",
     type: "UI/UX Design and Development",
     src: "",
-    bg: "#B3FFCB",
+    bg: "#000",
   },
   {
     title: "Horizon Webworks",
@@ -15,12 +15,12 @@ export const stickyCards = [
     title: "Horizon Webworks",
     type: "UI/UX Design and Development",
     src: "",
-    bg: "#9DEB0C",
+    bg: "#000",
   },
   {
     title: "Horizon Webworks",
     type: "UI/UX Design and Development",
     src: "",
-    bg: "#007AFF",
+    bg: "#000",
   },
 ];

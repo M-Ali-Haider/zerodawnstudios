@@ -23,8 +23,7 @@ const TopHeader = ({ headerRef }) => {
     <header
       ref={headerRef}
       className={`flex fixed top-7 left-0 right-0 z-50 items-center
-        mix-blend-difference xs:mix-blend-normal 
-        text-white xs:text-black
+        text-black
         px-4 xs:px-9
         justify-center xs:justify-normal
       `}

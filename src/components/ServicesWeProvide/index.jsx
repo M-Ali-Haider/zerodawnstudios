@@ -4,6 +4,7 @@ import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import FooterHeading from "../Headings/footerHeading";
 import Card from "./card";
+import { services } from "@/utils/services";
 
 const ServicesWeProvide = () => {
   const containerRef = useRef(null);
@@ -52,9 +53,9 @@ const ServicesWeProvide = () => {
           />
           <div className={`w-full flex-1 overflow-hidden`}>
             <motion.div style={{ x }} className={`w-full h-full flex gap-6`}>
-              <Card />
-              <Card />
-              <Card />
+              {services.map((item, index) => (
+                <Card key={index} item={item} />
+              ))}
             </motion.div>
           </div>
         </div>

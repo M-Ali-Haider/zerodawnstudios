@@ -1,4 +1,4 @@
-const Card = () => {
+const Card = ({ item }) => {
   return (
     <div
       className="rounded-[32px] h-full bg-white flex flex-col 
@@ -7,11 +7,10 @@ const Card = () => {
       <div className="flex-1 bg-[#C4C4C4] rounded-2xl"></div>
       <div className="mt-4">
         <div className="text-2xl services:text-[32px] services:leading-[41.5px] font-normal mb-4 services:mb-6">
-          Design
+          {item.title}
         </div>
         <div className="text-base services:text-2xl services:leading-[31.13px] font-light mb-4 services:mb-6">
-          Leverage compatibility with existing libraries like Wagmi or Solana
-          Wallet Adapter for a smooth, drop-in integration.
+          {item.description}
         </div>
         <div className="text-xs services:text-base">LEARN MORE &#10140; </div>
       </div>

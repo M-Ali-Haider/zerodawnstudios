@@ -1,16 +1,15 @@
 "use client";
 import { slideUpLanding } from "@/utils/textAnim";
+import { zeroAnim } from "@/utils/zeroAnim";
 import { useProgress } from "@react-three/drei";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import DreamsLine from "./dreams";
-import { scaleAnimation } from "@/utils/scaleAnim";
 
 const LandingTitle = () => {
   const words = ["DAWN", "STUDIOS"];
   const container = useRef(null);
-  // const isInView = useInView(container, { once: true });
   const { progress } = useProgress();
   const [canAnimate, setCanAnimate] = useState(false);
 
@@ -37,26 +36,39 @@ const LandingTitle = () => {
          text-7xl ml:text-[84px] xs:text-8xl md:text-9xl`}
       >
         <div className="flex items-center">
-          <div className="overflow-hidden">
+          <div className="overflow-hidden w-full">
             <motion.div
               custom={1}
               variants={slideUpLanding}
               initial="initial"
               animate={canAnimate ? "open" : "closed"}
-              className="flex items-center"
+              className="w-full flex items-center"
             >
-              ZER
-            </motion.div>
-          </div>
-          <div className="overflow-hidden flex items-center justify-center flex-1 max-w-[288px] aspect-[288/95]">
-            <motion.div
-              custom={2}
-              variants={scaleAnimation}
-              initial="initial"
-              animate={canAnimate ? "open" : "closed"}
-              className="relative w-full h-full"
-            >
-              <Image src={"/zero.png"} fill alt="zero's o image" />
+              <div className="">ZER</div>
+              <motion.div
+                custom={2}
+                variants={zeroAnim}
+                initial="initial"
+                animate={canAnimate ? "open" : "closed"}
+                className="overflow-hidden aspect-square 
+                h-[54.52px] ml:h-[63.61px] xs:h-[72.7px] md:h-[95px]"
+              >
+                <div
+                  className="relative h-full
+                  w-[165.31px] 
+                  ml:w-[192.86px] 
+                  xs:w-[220.42px] 
+                  md:w-[288px] 
+                "
+                >
+                  <Image
+                    src={"/zero.png"}
+                    fill
+                    alt="zero's o image"
+                    className=""
+                  />
+                </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>

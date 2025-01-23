@@ -1,4 +1,4 @@
-import Image from "next/image";
+import UpworkSVG from "@/assets/MaskCard/upwork";
 import styles from "./style.module.css";
 const Card = ({ className, item }) => {
   return (
@@ -6,16 +6,7 @@ const Card = ({ className, item }) => {
       className={`w-[400px] p-8 ${className} ${styles.levitate} relative rounded-2xl bg-white border-2 overflow-hidden`}
     >
       <div className="flex gap-[14px] items-center">
-        <div className="w-12 h-12 rounded-full overflow-hidden relative">
-          <Image
-            src={item.src}
-            alt="testimonial card image"
-            width={48}
-            height={48}
-            priority
-            loading="eager"
-          />
-        </div>
+        <UpworkSVG className="w-12 h-12" />
         <div>
           <div className="font-normal text-base leading-[20.75px]">
             {item.name}

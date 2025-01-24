@@ -86,7 +86,7 @@ export default function Scene({ scrollYProgress }) {
     };
   }, [manageMouseMove, manageMouseLeave]);
 
-  const { canAnimate } = useLoadingAnimation(1000);
+  const { canAnimate } = useLoadingAnimation(2000);
 
   return (
     <motion.div

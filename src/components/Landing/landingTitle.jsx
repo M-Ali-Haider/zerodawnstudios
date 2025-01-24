@@ -11,7 +11,7 @@ import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 const LandingTitle = () => {
   const words = ["DAWN", "STUDIOS"];
   const container = useRef(null);
-  const { canAnimate } = useLoadingAnimation(1000);
+  const { canAnimate } = useLoadingAnimation(2000);
   return (
     <div
       className="flex flex-col  justify-center

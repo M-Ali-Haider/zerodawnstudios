@@ -8,11 +8,33 @@ export default function Template({ children }) {
   const { progress } = useProgress();
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const lockScroll = () => {
+    console.log("Scrolling banned");
+    document.documentElement.style.overflow = "hidden";
+    document.documentElement.style.maxHeight = "100vh";
+    document.body.style.overflow = "hidden";
+    document.body.style.maxHeight = "100vh";
+  };
+
+  const unlockScroll = () => {
+    console.log("Scrolling allowed");
+    document.documentElement.style.overflow = "visible";
+    document.documentElement.style.maxHeight = "none";
+    document.body.style.overflow = "visible";
+    document.body.style.maxHeight = "none";
+  };
+
   useEffect(() => {
+    if (!isLoaded) {
+      lockScroll();
+    }
     if (progress === 100 && !isLoaded) {
       setTimeout(() => {
         setIsLoaded(true);
         animatePageIn(window.innerWidth, window.innerHeight);
+        setTimeout(() => {
+          unlockScroll();
+        }, 1500);
       }, 1000);
     }
   }, [progress, isLoaded]);

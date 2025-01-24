@@ -6,21 +6,12 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import DreamsLine from "./dreams";
+import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 
 const LandingTitle = () => {
   const words = ["DAWN", "STUDIOS"];
   const container = useRef(null);
-  const { progress } = useProgress();
-  const [canAnimate, setCanAnimate] = useState(false);
-
-  useEffect(() => {
-    if (progress === 100) {
-      setTimeout(() => {
-        setCanAnimate(true);
-      }, 1000);
-    }
-  }, [progress]);
-
+  const { canAnimate } = useLoadingAnimation(1000);
   return (
     <div
       className="flex flex-col  justify-center

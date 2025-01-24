@@ -13,7 +13,7 @@ export default function Template({ children }) {
       setTimeout(() => {
         setIsLoaded(true);
         animatePageIn(window.innerWidth, window.innerHeight);
-      }, 500);
+      }, 1000);
     }
   }, [progress, isLoaded]);
 

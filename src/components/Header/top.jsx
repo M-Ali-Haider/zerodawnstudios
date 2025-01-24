@@ -6,19 +6,10 @@ import { useProgress } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { slideUpLanding } from "@/utils/textAnim";
 import { scaleAnimation } from "@/utils/scaleAnim";
+import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 
 const TopHeader = ({ headerRef }) => {
-  const { progress } = useProgress();
-  const [canAnimate, setCanAnimate] = useState(false);
-
-  useEffect(() => {
-    if (progress === 100) {
-      setTimeout(() => {
-        setCanAnimate(true);
-      }, 1000);
-    }
-  }, [progress]);
-
+  const { canAnimate } = useLoadingAnimation(1000);
   return (
     <header
       ref={headerRef}

@@ -1,14 +1,24 @@
 "use client";
-import { Environment } from "@react-three/drei";
+import { Environment, useProgress } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import {
   useInView,
   useMotionValue,
   useSpring,
   useTransform,
+  motion,
 } from "framer-motion";
-import { Suspense, useCallback, useEffect, useMemo, useRef } from "react";
+import {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Model from "./model";
+import { opacityAnim } from "@/utils/opacityAnim";
+import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 export default function Scene({ scrollYProgress }) {
   const rotationZ = useTransform(
     scrollYProgress,
@@ -76,9 +86,14 @@ export default function Scene({ scrollYProgress }) {
     };
   }, [manageMouseMove, manageMouseLeave]);
 
+  const { canAnimate } = useLoadingAnimation(1000);
+
   return (
-    <div
+    <motion.div
       ref={containerRef}
+      variants={opacityAnim}
+      initial="initial"
+      animate={canAnimate ? "open" : "closed"}
       className="relative
        w-full xl:w-auto xl:min-w-[50vw] xl:max-w-[50vw] 
        h-screen"
@@ -93,6 +108,6 @@ export default function Scene({ scrollYProgress }) {
           <Model rotationZ={rotationZ} rotateX={mouse.y} rotateY={mouse.x} />
         </Suspense>
       </Canvas>
-    </div>
+    </motion.div>
   );
 }

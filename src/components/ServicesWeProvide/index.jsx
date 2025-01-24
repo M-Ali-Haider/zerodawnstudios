@@ -48,7 +48,7 @@ const ServicesWeProvide = () => {
       />
       <div
         ref={containerRef}
-        className="relative bg-black h-[300vh] sm:h-[200vh]"
+        className="relative bg-black h-[300vh] sm:h-[250vh]"
       >
         <div className="sticky top-0 h-[100vh] flex flex-col pb-12">
           <FooterHeading

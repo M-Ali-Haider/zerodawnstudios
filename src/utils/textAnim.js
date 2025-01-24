@@ -30,7 +30,7 @@ export const slideUpDreams = {
   },
   open: (i) => ({
     y: 0,
-    transition: { duration: 0.4, delay: 0.35 * i },
+    transition: { duration: 0.4, delay: 0.3 * i },
   }),
   closed: {
     y: "100%",
@@ -95,7 +95,7 @@ export const slideUpDescription = {
   },
   open: (i) => ({
     y: 0,
-    transition: { duration: 0.75, delay: 0.05 * i },
+    transition: { duration: 0.5, delay: 0.02 * i },
   }),
   closed: {
     y: "100%",

@@ -61,7 +61,7 @@ const ServicesWeProvide = () => {
             <motion.div
               ref={boxRef}
               style={{ x }}
-              className={`w-full max-h-[517px] 2xl:max-h-[652px] h-full flex gap-6`}
+              className={`w-full h-full flex gap-6`}
             >
               {services.map((item, index) => (
                 <Card

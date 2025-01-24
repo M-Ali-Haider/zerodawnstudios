@@ -50,6 +50,22 @@ export const slideUp = {
   },
 };
 
+export const slideUpFeatureProjects = {
+  initial: {
+    y: "100%",
+    opacity: 0.5,
+  },
+  open: (i) => ({
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.75, delay: 0.1 * i },
+  }),
+  closed: {
+    y: "100%",
+    opacity: 0.5,
+  },
+};
+
 export const slideUpProjects = {
   initial: {
     y: "100%",

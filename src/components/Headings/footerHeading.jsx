@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const FooterHeading = ({ className, title }) => {
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true });
+  const isInView = useInView(containerRef);
   const array = title.split(" ");
   return (
     <div

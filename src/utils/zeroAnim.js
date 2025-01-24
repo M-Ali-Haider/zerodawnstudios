@@ -1,7 +1,7 @@
 export const zeroAnim = {
-  initial: { borderRadius: "50%", aspectRatio: 1 },
+  initial: { borderRadius: "95px", aspectRatio: 1 },
   open: (i) => ({
-    borderRadius: "0px",
+    borderRadius: "95px",
     aspectRatio: 288 / 95,
     transition: { duration: 1.25, ease: [0.76, 0, 0.24, 1], delay: 0.35 * i },
   }),

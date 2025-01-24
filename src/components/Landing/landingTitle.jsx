@@ -1,12 +1,11 @@
 "use client";
+import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 import { slideUpLanding } from "@/utils/textAnim";
 import { zeroAnim } from "@/utils/zeroAnim";
-import { useProgress } from "@react-three/drei";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import DreamsLine from "./dreams";
-import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 
 const LandingTitle = () => {
   const words = ["DAWN", "STUDIOS"];

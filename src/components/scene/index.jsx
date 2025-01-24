@@ -20,6 +20,8 @@ import Model from "./model";
 import { opacityAnim } from "@/utils/opacityAnim";
 import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 export default function Scene({ scrollYProgress }) {
+  const xPosition = useTransform(scrollYProgress, [0, 1], [-1, 1]);
+
   const rotationZ = useTransform(
     scrollYProgress,
     [0, 1],
@@ -105,7 +107,12 @@ export default function Scene({ scrollYProgress }) {
       >
         <Environment preset="dawn" />
         <Suspense fallback={null}>
-          <Model rotationZ={rotationZ} rotateX={mouse.y} rotateY={mouse.x} />
+          <Model
+            xPosition={xPosition}
+            rotationZ={rotationZ}
+            rotateX={mouse.y}
+            rotateY={mouse.x}
+          />
         </Suspense>
       </Canvas>
     </motion.div>

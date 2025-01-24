@@ -41,7 +41,9 @@ const ServicesWeProvide = () => {
 
   return (
     <>
-      <div className="h-[72px] rounded-t-[48px] bg-black" />
+      <div className="bg-white">
+        <div className="h-[72px] rounded-t-[48px] bg-black" />
+      </div>
       <FooterHeading
         className={`pl-8 flex services:hidden bg-black`}
         title={"Our Services"}

@@ -11,8 +11,7 @@ const ServicesWeProvide = () => {
   const cardRef = useRef(null);
   const boxRef = useRef(null);
 
-  const [cardWidth, setCardWidth] = useState(0);
-  const [boxWidth, setBoxWidth] = useState(0);
+  const [range, setRange] = useState(["32px", "320px"]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -21,22 +20,18 @@ const ServicesWeProvide = () => {
   const options = {
     ease: cubicBezier(0.61, 1, 0.88, 1),
   };
-  const x = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["32px", `${boxWidth - (104 + cardWidth * 4)}px`],
-    options
-  );
+  const x = useTransform(scrollYProgress, [0, 1], range, options);
 
   useEffect(() => {
     const updateWidths = () => {
-      if (cardRef.current) {
-        const width = cardRef.current.getBoundingClientRect().width;
-        setCardWidth(width);
-      }
-      if (boxRef.current) {
-        const width = boxRef.current.getBoundingClientRect().width;
-        setBoxWidth(width);
+      if (cardRef.current && boxRef.current) {
+        const cardWidth = cardRef.current.getBoundingClientRect().width;
+        const boxWidth = boxRef.current.getBoundingClientRect().width;
+        if (window.innerWidth < 640) {
+          setRange(["10px", `${boxWidth - (82 + cardWidth * 4)}px`]);
+        } else {
+          setRange(["32px", `${boxWidth - (104 + cardWidth * 4)}px`]);
+        }
       }
     };
     updateWidths();

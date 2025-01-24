@@ -1,12 +1,12 @@
 "use client";
-import { slideUp } from "@/utils/textAnim";
+import { slideUp, slideUpProjects } from "@/utils/textAnim";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 const Heading = () => {
   const headingRef = useRef(null);
   // const heading = ["P", "r", "o", "j", "e", "c", "t", "s"];
   const heading = ["Featured", "Projects"];
-  const isInView = useInView(headingRef, { once: true });
+  const isInView = useInView(headingRef, { once: true, margin: "-50%" });
   return (
     <div
       ref={headingRef}

@@ -50,6 +50,19 @@ export const slideUp = {
   },
 };
 
+export const slideUpProjects = {
+  initial: {
+    y: "100%",
+  },
+  open: (i) => ({
+    y: 0,
+    transition: { duration: 0.75, delay: 0.35 * i },
+  }),
+  closed: {
+    y: "100%",
+  },
+};
+
 export const slideUpFooter = {
   initial: {
     y: "100%",

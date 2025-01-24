@@ -29,7 +29,7 @@ const Card = ({ item, index, range, targetScale, progress }) => {
           scale,
         }}
       >
-        <UpperPart type={item.type} title={item.title} />
+        <UpperPart index={index} type={item.type} title={item.title} />
         <LowerPart scale={imageScale} />
       </motion.div>
     </div>
@@ -55,10 +55,12 @@ const LowerPart = ({ scale }) => {
   );
 };
 
-const UpperPart = ({ type, title }) => {
+const UpperPart = ({ index, type, title }) => {
   return (
     <div className="flex justify-between">
-      <div className="text-white font-normal">
+      <div
+        className={`${index === 0 ? "text-white" : "text-black"} font-normal`}
+      >
         <div className="text-xs leading-[15.56px] xs:text-sm xs:leading-[18.16px]">
           {type}
         </div>

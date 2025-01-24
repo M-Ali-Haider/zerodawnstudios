@@ -52,7 +52,7 @@ const ServicesWeProvide = () => {
         ref={containerRef}
         className="relative bg-black h-[300vh] sm:h-[250vh]"
       >
-        <div className="sticky top-0 h-[100vh] flex flex-col pb-12">
+        <div className="sticky top-0 h-[100vh] flex flex-col 2xl:pb-12">
           <FooterHeading
             className={`pl-8 my-6 hidden services:flex`}
             title={"Services we provide"}
@@ -61,7 +61,7 @@ const ServicesWeProvide = () => {
             <motion.div
               ref={boxRef}
               style={{ x }}
-              className={`w-full h-full flex gap-6`}
+              className={`w-full max-h-[517px] 2xl:max-h-[652px] h-full flex gap-6`}
             >
               {services.map((item, index) => (
                 <Card

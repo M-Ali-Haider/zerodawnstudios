@@ -1,8 +1,11 @@
 "use client";
 
+import LogoSVG from "@/assets/Header/logo";
 import { animatePageIn } from "@/components/PageTransition";
 import { useProgress } from "@react-three/drei";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { slideFromRightLoading } from "@/utils/loadingAnim";
 
 export default function Template({ children }) {
   const { progress } = useProgress();
@@ -53,9 +56,23 @@ export default function Template({ children }) {
       </svg>
       <div
         id="banner-2"
-        className="text-xl xs:text-6xl fixed left-[50%] top-[40%] -translate-x-[50%] text-white z-[100] pointer-events-none"
+        className="fixed left-[50%] top-[40%] -translate-x-[50%] text-white z-[100] pointer-events-none"
       >
-        Opening Studio... {Math.round(progress)}%
+        <div className="flex flex-col items-center">
+          <div className="flex items-center">
+            <div className="overflow-hidden text-5xl">
+              <motion.div
+                variants={slideFromRightLoading}
+                initial="initial"
+                animate={progress === 100 ? "open" : "closed"}
+              >
+                ZER
+              </motion.div>
+            </div>
+            <LogoSVG fill="white" className={"w-12 h-12"} />
+          </div>
+          {progress !== 100 && <div className="">{Math.round(progress)}%</div>}
+        </div>
       </div>
       {children}
     </>

@@ -29,6 +29,6 @@ export const services = [
     top: "12px",
     src: "/Services/deployment.png",
     description:
-      "Ensuring a smooth launch with rigorous testing, performance optimization, and ongoing support for long-term success. Whenever you need us, we will be there for you.",
+      "Ensuring a smooth launch with rigorous testing, optimization, and ongoing support for long-term success. Whenever you need us, we will be there for you.",
   },
 ];

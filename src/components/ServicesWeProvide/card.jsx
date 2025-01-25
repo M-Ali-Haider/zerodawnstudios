@@ -12,7 +12,7 @@ const Card = ({ item, propRef }) => {
         aspect-[310/314] sm:aspect-[528/398]"
       >
         <Image
-          src="/Services/servicesbg.png"
+          src="/Services/servicesbg.webp"
           alt="services bg image"
           fill
           className=""

@@ -24,6 +24,19 @@ export const slideUpLanding = {
   },
 };
 
+export const slideUpHeaderOptions = {
+  initial: {
+    y: "100%",
+  },
+  open: (i) => ({
+    y: 0,
+    transition: { duration: 0.5, delay: 0.15 * i },
+  }),
+  closed: {
+    y: "100%",
+  },
+};
+
 export const slideUpDreams = {
   initial: {
     y: "100%",

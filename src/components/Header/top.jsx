@@ -2,54 +2,89 @@
 import LogoSVG from "@/assets/Header/logo";
 import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 import { scaleAnimation } from "@/utils/scaleAnim";
-import { slideUpLanding } from "@/utils/textAnim";
-import { motion } from "framer-motion";
+import { sectionsHeader } from "@/utils/sections";
+import { slideUpHeaderOptions, slideUpLanding } from "@/utils/textAnim";
+import MotionDiv from "../MotionDiv";
 import GlassHeader from "./glass";
+import { motion } from "framer-motion";
+import TopBurgerMenuSVG from "@/assets/Header/topBurgerMenu";
 
-const TopHeader = ({ headerRef }) => {
+const TopHeader = ({
+  logoRef,
+  optionsRef,
+  lastButtonRef,
+  topGlassHeaderRef,
+  isContact,
+}) => {
   const { canAnimate } = useLoadingAnimation(3250);
   return (
     <header
-      ref={headerRef}
-      className={`flex fixed top-7 left-0 right-0 z-50 items-center
-        text-black
-        px-4 xs:px-9
-        justify-center xs:justify-normal
+      className={`flex fixed top-6 left-0 right-0 z-50 items-center
+        px-4 lg:px-9
+        justify-center lg:justify-normal
+        text-white
+        mix-blend-difference
       `}
     >
-      <GlassHeader top={true} />
-      <div className="flex-1 hidden xs:flex items-center gap-4">
-        <motion.div
-          custom={3}
-          variants={scaleAnimation}
-          initial="initial"
-          animate={canAnimate ? "open" : "closed"}
-        >
-          <LogoSVG />
-        </motion.div>
+      <GlassHeader top={true} topGlassHeaderRef={topGlassHeaderRef} />
+      <div ref={logoRef} className="flex-1 hidden lg:flex items-center gap-4">
+        <MotionDiv custom={3} variants={scaleAnimation} trigger={canAnimate}>
+          <LogoSVG fill="white" />
+        </MotionDiv>
+
         <div className="overflow-hidden">
-          <motion.div
+          <MotionDiv
             custom={3}
             variants={slideUpLanding}
-            initial="initial"
-            animate={canAnimate ? "open" : "closed"}
+            trigger={canAnimate}
             className="text-[17px] leading-[22.05px]"
           >
             Zero Dawn Studios
-          </motion.div>
+          </MotionDiv>
         </div>
       </div>
-      <div className="flex-1 hidden xs:flex items-center justify-end">
-        <motion.button
+      <div
+        ref={optionsRef}
+        className="flex-1 hidden lg:flex items-center justify-center"
+      >
+        <div className="flex items-center justify-between w-full max-w-[415px]">
+          {sectionsHeader.map((item, index) => (
+            <div
+              className="text-sm leading-[18.16px] cursor-pointer overflow-hidden"
+              key={index}
+            >
+              <MotionDiv
+                variants={slideUpHeaderOptions}
+                custom={index + 5}
+                trigger={canAnimate}
+              >
+                {item.name}
+              </MotionDiv>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex-1 hidden lg:flex items-center justify-end">
+        {/* <div
+          ref={lastButtonRef}
+          className="rounded-full"
+        > */}
+        <motion.div
+          ref={lastButtonRef}
           custom={3}
           variants={scaleAnimation}
           initial="initial"
           animate={canAnimate ? "open" : "closed"}
-          className="px-8 py-4 rounded-full 
-          text-base text-black border border-black"
+          className="w-[147.79px] h-[57.6px] flex items-center justify-center
+            text-base border border-white cursor-pointer rounded-full"
         >
-          Contact Us
-        </motion.button>
+          {isContact ? (
+            "Contact Us"
+          ) : (
+            <TopBurgerMenuSVG className="w-[25.5px] h-[14.67px]" />
+          )}
+        </motion.div>
+        {/* </div> */}
       </div>
     </header>
   );

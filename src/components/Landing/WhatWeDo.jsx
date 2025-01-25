@@ -50,16 +50,16 @@ const WhatWeDo = () => {
             </div>
           ))}
         </div>
-      </div>
-      <motion.div
-        variants={scaleAnimationButton}
-        initial="initial"
-        animate={isInView ? "open" : "closed"}
-        className="font-normal text-2xl leading-[31.13px] 
+        <motion.div
+          variants={scaleAnimationButton}
+          initial="initial"
+          animate={isInView ? "open" : "closed"}
+          className="font-normal text-2xl leading-[31.13px] 
             border border-black w-full rounded-full py-[74px] text-center"
-      >
-        Contact Us
-      </motion.div>
+        >
+          Contact Us
+        </motion.div>
+      </div>
     </div>
   );
 };

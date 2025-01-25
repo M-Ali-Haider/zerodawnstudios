@@ -1,4 +1,5 @@
 import LenisScrollProvider from "@/providers/LenisScroll";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SuisseIntl, SwearDisplay } from "./fonts/fonts";
 import "./globals.css";
 export const metadata = {
@@ -12,7 +13,10 @@ export default function RootLayout({ children }) {
       <body
         className={`${SuisseIntl.className} ${SwearDisplay.variable} bg-black`}
       >
-        <LenisScrollProvider>{children}</LenisScrollProvider>
+        <LenisScrollProvider>
+          {children}
+          <SpeedInsights />
+        </LenisScrollProvider>
       </body>
     </html>
   );

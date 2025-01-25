@@ -30,10 +30,10 @@ const Card = ({ item, propRef }) => {
         />
       </div>
       <div className="mt-4">
-        <div className="text-2xl 2xl:text-[32px] 2xl:leading-[41.5px] font-normal mb-4 2xl:mb-6">
+        <div className="text-2xl sm:text-[28px] 2xl:text-[32px] 2xl:leading-[41.5px] font-normal mb-4 2xl:mb-6">
           {item.title}
         </div>
-        <div className="text-base 2xl:text-2xl 2xl:leading-[31.13px] font-light mb-4 2xl:mb-6">
+        <div className="text-base leading-[20.75px] sm:text-lg sm:leading-[24px] 2xl:text-2xl 2xl:leading-[31.13px] font-light mb-4 2xl:mb-6">
           {item.description}
         </div>
       </div>

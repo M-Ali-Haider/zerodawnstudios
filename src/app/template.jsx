@@ -2,17 +2,20 @@
 
 import LogoSVG from "@/assets/Header/logo";
 import { animatePageIn } from "@/components/PageTransition";
+import {
+  scaleLoadingAnim,
+  slideUpLoading,
+  widthLoadingAnim,
+} from "@/utils/loadingAnim";
 import { useProgress } from "@react-three/drei";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { slideFromRightLoading } from "@/utils/loadingAnim";
+import { useEffect, useState } from "react";
 
 export default function Template({ children }) {
   const { progress } = useProgress();
   const [isLoaded, setIsLoaded] = useState(false);
 
   const lockScroll = () => {
-    console.log("Scrolling banned");
     document.documentElement.style.overflow = "hidden";
     document.documentElement.style.maxHeight = "100vh";
     document.body.style.overflow = "hidden";
@@ -20,7 +23,6 @@ export default function Template({ children }) {
   };
 
   const unlockScroll = () => {
-    console.log("Scrolling allowed");
     document.documentElement.style.overflow = "visible";
     document.documentElement.style.maxHeight = "none";
     document.body.style.overflow = "visible";
@@ -38,7 +40,7 @@ export default function Template({ children }) {
         setTimeout(() => {
           unlockScroll();
         }, 1500);
-      }, 1000);
+      }, 2250);
     }
   }, [progress, isLoaded]);
 
@@ -62,7 +64,7 @@ export default function Template({ children }) {
           <div className="flex items-center">
             <div className="overflow-hidden text-5xl">
               <motion.div
-                variants={slideFromRightLoading}
+                variants={widthLoadingAnim}
                 initial="initial"
                 animate={progress === 100 ? "open" : "closed"}
               >
@@ -71,7 +73,36 @@ export default function Template({ children }) {
             </div>
             <LogoSVG fill="white" className={"w-12 h-12"} />
           </div>
-          {progress !== 100 && <div className="">{Math.round(progress)}%</div>}
+          <div className="overflow-hidden">
+            <motion.div
+              variants={scaleLoadingAnim}
+              initial="initial"
+              animate={progress === 100 ? "open" : "closed"}
+              className=""
+            >
+              {Math.round(progress)}%
+            </motion.div>
+          </div>
+          <div className="overflow-hidden text-5xl">
+            <motion.div
+              custom={1}
+              variants={slideUpLoading}
+              initial="initial"
+              animate={progress === 100 ? "open" : "closed"}
+            >
+              Dawn
+            </motion.div>
+          </div>
+          <div className="overflow-hidden text-5xl">
+            <motion.div
+              custom={2}
+              variants={slideUpLoading}
+              initial="initial"
+              animate={progress === 100 ? "open" : "closed"}
+            >
+              Studios
+            </motion.div>
+          </div>
         </div>
       </div>
       {children}

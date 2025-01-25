@@ -1,12 +1,15 @@
 "use client";
-import { Environment, useProgress } from "@react-three/drei";
+import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
+import { opacityAnim } from "@/utils/opacityAnim";
+import { Environment } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import {
+  cubicBezier,
+  motion,
   useInView,
   useMotionValue,
   useSpring,
   useTransform,
-  motion,
 } from "framer-motion";
 import {
   Suspense,
@@ -17,10 +20,23 @@ import {
   useState,
 } from "react";
 import Model from "./model";
-import { opacityAnim } from "@/utils/opacityAnim";
-import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 export default function Scene({ scrollYProgress }) {
-  const xPosition = useTransform(scrollYProgress, [0, 1], [-1, 1]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const xRange = useMemo(() => {
+    return windowWidth >= 1280 ? [-1, 1] : [0, 0];
+  }, [windowWidth]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const xPosition = useTransform(scrollYProgress, [0, 1], xRange, {
+    ease: cubicBezier(0.61, 1, 0.88, 1),
+  });
 
   const rotationZ = useTransform(
     scrollYProgress,

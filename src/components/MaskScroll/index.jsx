@@ -1,24 +1,24 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import InsideMask from "./insideMask";
 import styles from "./style.module.css";
 const MaskScroll = () => {
   const container = useRef(null);
   const [maskSizeRange, setMaskSizeRange] = useState(["0vw", "200vw"]);
-
+  const updateMaskSize = useMemo(
+    () => () => {
+      setMaskSizeRange(
+        window.innerWidth > 550 ? ["0vw", "200vw"] : ["0vw", "250vw"]
+      );
+    },
+    []
+  );
   useEffect(() => {
-    const updateMaskSize = () => {
-      if (window.innerWidth > 550) {
-        setMaskSizeRange(["0vw", "200vw"]);
-      } else {
-        setMaskSizeRange(["0vw", "250vw"]);
-      }
-    };
     updateMaskSize();
     window.addEventListener("resize", updateMaskSize);
     return () => window.removeEventListener("resize", updateMaskSize);
-  }, []);
+  }, [updateMaskSize]);
 
   const { scrollYProgress } = useScroll({
     target: container,

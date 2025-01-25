@@ -9,7 +9,7 @@ const classNames = [
 ];
 
 const InsideMask = ({ scrollYProgress }) => {
-  const scaleCenter = useTransform(scrollYProgress, [0, 1], [4, 1]);
+  // const scaleCenter = useTransform(scrollYProgress, [0, 1], [4, 1]);
   const scale5 = useTransform(scrollYProgress, [0, 1], [5, 1]);
   const scale6 = useTransform(scrollYProgress, [0, 1], [6, 1]);
   const scale7 = useTransform(scrollYProgress, [0, 1], [7, 1]);

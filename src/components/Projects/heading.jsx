@@ -9,7 +9,7 @@ const Heading = () => {
   const isInView = useInView(headingRef);
   return (
     <>
-      <div className="bg-[#f1f1f1]">
+      <div className="bg-white xl:bg-[#f1f1f1]">
         <div className="h-[72px] rounded-t-[48px] bg-white" />
       </div>
       <div

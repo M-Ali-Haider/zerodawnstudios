@@ -21,7 +21,7 @@ export const services = [
     scale: 1.09,
     top: "8px",
     description:
-      "Our talented team customizes the tech stack to perfectly align with your needs, ensuring high performance, secure, and scalable solutions and seamless integrations.",
+      "We customize the tech stack to perfectly align with your needs, ensuring high performance, secure, and scalable solutions and seamless integrations.",
   },
   {
     title: "(04) Deployment",

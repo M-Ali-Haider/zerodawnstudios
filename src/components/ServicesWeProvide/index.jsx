@@ -20,7 +20,7 @@ const ServicesWeProvide = () => {
   // const options = {
   //   ease: cubicBezier(0.61, 1, 0.88, 1),
   // };
-  const x = useTransform(scrollYProgress, [0, 1], range, { ease: easeOut });
+  const x = useTransform(scrollYProgress, [0, 1], range);
 
   useEffect(() => {
     const updateWidths = () => {

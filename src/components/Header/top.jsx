@@ -1,12 +1,10 @@
 "use client";
 import LogoSVG from "@/assets/Header/logo";
-import GlassHeader from "./glass";
-import { useEffect, useState } from "react";
-import { useProgress } from "@react-three/drei";
-import { motion } from "framer-motion";
-import { slideUpLanding } from "@/utils/textAnim";
-import { scaleAnimation } from "@/utils/scaleAnim";
 import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
+import { scaleAnimation } from "@/utils/scaleAnim";
+import { slideUpLanding } from "@/utils/textAnim";
+import { motion } from "framer-motion";
+import GlassHeader from "./glass";
 
 const TopHeader = ({ headerRef }) => {
   const { canAnimate } = useLoadingAnimation(3250);
@@ -47,8 +45,8 @@ const TopHeader = ({ headerRef }) => {
           variants={scaleAnimation}
           initial="initial"
           animate={canAnimate ? "open" : "closed"}
-          className="bg-black text-white px-8 py-4 rounded-full 
-          text-base leading-[20.75px]"
+          className="px-8 py-4 rounded-full 
+          text-base text-black border border-black"
         >
           Contact Us
         </motion.button>

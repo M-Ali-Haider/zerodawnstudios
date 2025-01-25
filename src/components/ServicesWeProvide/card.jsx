@@ -16,6 +16,8 @@ const Card = ({ item, propRef }) => {
           alt="services bg image"
           fill
           className=""
+          loading="eager"
+          priority
         />
         <Image
           src={item.src}
@@ -23,6 +25,8 @@ const Card = ({ item, propRef }) => {
           alt="card main image"
           style={{ scale: item.scale, top: item.top }}
           className={`object-contain`}
+          loading="eager"
+          priority
         />
       </div>
       <div className="mt-4">

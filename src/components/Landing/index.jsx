@@ -11,7 +11,7 @@ const Scene = dynamic(() => import("@/components/scene/index"), {
   loading: () => (
     <div className="h-screen min-w-[50vw] max-w-[50vw] relative flex items-center justify-center">
       <Image
-        src="/Scene/chips.png"
+        src="/Scene/chips.webp"
         alt="replacer image while actual 3d loading"
         width={500}
         height={500}

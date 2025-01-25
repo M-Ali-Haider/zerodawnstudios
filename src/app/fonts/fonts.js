@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 export const SuisseIntl = localFont({
   src: [
     {
-      path: "./Suisse/Light.ttf",
+      path: "./Suisse/Light.otf",
       weight: "300",
       style: "normal",
     },

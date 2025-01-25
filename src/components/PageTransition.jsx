@@ -28,7 +28,7 @@ export const animatePageIn = (width, height) => {
         ease: customEase,
       })
       .to(bannerTwo, {
-        delay: -0.9,
+        delay: -0.925,
         opacity: 0,
         top: -100,
         duration: 0.75,

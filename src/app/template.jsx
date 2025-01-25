@@ -2,11 +2,7 @@
 
 import LogoSVG from "@/assets/Header/logo";
 import { animatePageIn } from "@/components/PageTransition";
-import {
-  scaleLoadingAnim,
-  slideUpLoading,
-  widthLoadingAnim,
-} from "@/utils/loadingAnim";
+import { slideUpLoading, widthLoadingAnim } from "@/utils/loadingAnim";
 import { useProgress } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -40,7 +36,7 @@ export default function Template({ children }) {
         setTimeout(() => {
           unlockScroll();
         }, 1500);
-      }, 2250);
+      }, 1500);
     }
   }, [progress, isLoaded]);
 
@@ -61,46 +57,28 @@ export default function Template({ children }) {
         className="fixed left-[50%] top-[40%] -translate-x-[50%] text-white z-[100] pointer-events-none"
       >
         <div className="flex flex-col items-center">
-          <div className="flex items-center">
-            <div className="overflow-hidden text-5xl">
+          <div className="flex items-center gap-[2px]">
+            <div className="overflow-hidden">
               <motion.div
                 variants={widthLoadingAnim}
                 initial="initial"
                 animate={progress === 100 ? "open" : "closed"}
+                className="text-5xl font-light"
               >
                 ZER
               </motion.div>
             </div>
-            <LogoSVG fill="white" className={"w-12 h-12"} />
+            <LogoSVG fill="white" className={"w-[37px] h-[37px] -mt-[9px]"} />
           </div>
           <div className="overflow-hidden">
-            <motion.div
-              variants={scaleLoadingAnim}
-              initial="initial"
-              animate={progress === 100 ? "open" : "closed"}
-              className=""
-            >
-              {Math.round(progress)}%
-            </motion.div>
-          </div>
-          <div className="overflow-hidden text-5xl">
             <motion.div
               custom={1}
               variants={slideUpLoading}
               initial="initial"
               animate={progress === 100 ? "open" : "closed"}
+              className="font-light tracking-[0.15em]"
             >
-              Dawn
-            </motion.div>
-          </div>
-          <div className="overflow-hidden text-5xl">
-            <motion.div
-              custom={2}
-              variants={slideUpLoading}
-              initial="initial"
-              animate={progress === 100 ? "open" : "closed"}
-            >
-              Studios
+              DAWN Studios
             </motion.div>
           </div>
         </div>

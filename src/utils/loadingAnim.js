@@ -42,13 +42,13 @@ export const scaleLoadingAnim = {
 
 export const slideUpLoading = {
   initial: {
-    y: "100%",
+    y: "-100%",
   },
   open: (i) => ({
     y: 0,
     transition: { duration: 0.75, delay: 0.75 * i },
   }),
   closed: {
-    y: "100%",
+    y: "-100%",
   },
 };

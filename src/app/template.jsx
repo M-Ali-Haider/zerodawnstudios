@@ -28,19 +28,19 @@ export const unlockScroll = () => {
 };
 
 export default function Template({ children }) {
-  const { progress } = useProgress();
+  const { active } = useProgress();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     if (!isLoaded) {
       lockScroll();
     }
-    if (progress === 100 && !isLoaded) {
+    if (!active && !isLoaded) {
       setIsLoaded(true);
       setTimeout(() => {
         animatePageIn(window.innerWidth, window.innerHeight);
       }, 2250);
     }
-  }, [progress, isLoaded]);
+  }, [active, isLoaded]);
 
   return (
     <>

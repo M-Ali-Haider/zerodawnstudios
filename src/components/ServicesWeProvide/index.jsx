@@ -48,7 +48,10 @@ const ServicesWeProvide = () => {
         className={`pl-8 flex services:hidden`}
         title={"Our Services"}
       />
-      <div ref={containerRef} className="relative bg-black h-[250vh]">
+      <div
+        ref={containerRef}
+        className="relative bg-black h-[300vh] sm:h-[250vh]"
+      >
         <div className="sticky top-0 h-[90vh] services:h-[100vh] flex flex-col 2xl:pb-12">
           <FooterHeading
             className={`pl-8 my-6 hidden services:flex`}

@@ -1,10 +1,10 @@
 "use client";
 
-import { cubicBezier, motion, useScroll, useTransform } from "framer-motion";
+import { services } from "@/utils/services";
+import { easeOut, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import FooterHeading from "../Headings/footerHeading";
 import Card from "./card";
-import { services } from "@/utils/services";
 
 const ServicesWeProvide = () => {
   const containerRef = useRef(null);
@@ -17,10 +17,10 @@ const ServicesWeProvide = () => {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-  const options = {
-    ease: cubicBezier(0.61, 1, 0.88, 1),
-  };
-  const x = useTransform(scrollYProgress, [0, 1], range, options);
+  // const options = {
+  //   ease: cubicBezier(0.61, 1, 0.88, 1),
+  // };
+  const x = useTransform(scrollYProgress, [0, 1], range, { ease: easeOut });
 
   useEffect(() => {
     const updateWidths = () => {

@@ -1,5 +1,5 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useMemo, useRef, useState } from "react";
 import InsideMask from "./insideMask";
 import styles from "./style.module.css";
@@ -9,7 +9,7 @@ const MaskScroll = () => {
   const updateMaskSize = useMemo(
     () => () => {
       setMaskSizeRange(
-        window.innerWidth > 550 ? ["0vw", "200vw"] : ["0vw", "250vw"]
+        window.innerWidth > 550 ? ["0vw", "200vw"] : ["0vw", "275vw"]
       );
     },
     []
@@ -24,7 +24,9 @@ const MaskScroll = () => {
     target: container,
     offset: ["start start", "275vh"],
   });
-  const maskSize = useTransform(scrollYProgress, [0, 1], maskSizeRange);
+  const maskSize = useTransform(scrollYProgress, [0, 1], maskSizeRange, {
+    ease: easeInOut,
+  });
   return (
     <>
       <div

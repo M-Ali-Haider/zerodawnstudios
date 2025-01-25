@@ -109,6 +109,7 @@ export default function Scene({ scrollYProgress }) {
   return (
     <motion.div
       ref={containerRef}
+      custom={1}
       variants={opacityAnim}
       initial="initial"
       animate={canAnimate ? "open" : "closed"}

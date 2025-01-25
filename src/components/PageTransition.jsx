@@ -1,3 +1,4 @@
+import { unlockScroll } from "@/app/template";
 import gsap from "gsap";
 const customEase = "custom,0.76,0,0.24,1";
 const customEase2 = "custom,0.33, 1, 0.68, 1";
@@ -8,12 +9,16 @@ export const animatePageIn = (width, height) => {
   const bannerOne = document.getElementById("banner-1");
   //this is the id of the path inside svg
   const bannerThree = document.getElementById("banner-3");
+  const bannerFour = document.getElementById("banner-4");
 
   if (bannerOne && bannerTwo && bannerThree) {
     const tl = gsap.timeline();
     tl.set(bannerOne, {
       top: "-300px",
     })
+      .set(bannerFour, {
+        opacity: 0,
+      })
       .set(bannerThree, {
         attr: {
           d: `M0 300 Q${width / 2} 0 ${width} 300 L${width} ${height + 300} Q${
@@ -54,6 +59,7 @@ export const animatePageIn = (width, height) => {
           tl.set([bannerOne, bannerTwo], {
             top: "100vh",
           });
+          unlockScroll();
         },
       });
   }

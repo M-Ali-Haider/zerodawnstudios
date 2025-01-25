@@ -13,25 +13,23 @@ import {
 import { useProgress } from "@react-three/drei";
 import { useEffect, useState } from "react";
 
+const lockScroll = () => {
+  document.documentElement.style.overflow = "hidden";
+  document.documentElement.style.maxHeight = "100vh";
+  document.body.style.overflow = "hidden";
+  document.body.style.maxHeight = "100vh";
+};
+
+export const unlockScroll = () => {
+  document.documentElement.style.overflow = "visible";
+  document.documentElement.style.maxHeight = "none";
+  document.body.style.overflow = "visible";
+  document.body.style.maxHeight = "none";
+};
+
 export default function Template({ children }) {
   const { progress } = useProgress();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [opacity, setOpacity] = useState(1);
-
-  const lockScroll = () => {
-    document.documentElement.style.overflow = "hidden";
-    document.documentElement.style.maxHeight = "100vh";
-    document.body.style.overflow = "hidden";
-    document.body.style.maxHeight = "100vh";
-  };
-
-  const unlockScroll = () => {
-    document.documentElement.style.overflow = "visible";
-    document.documentElement.style.maxHeight = "none";
-    document.body.style.overflow = "visible";
-    document.body.style.maxHeight = "none";
-  };
-
   useEffect(() => {
     if (!isLoaded) {
       lockScroll();
@@ -39,11 +37,7 @@ export default function Template({ children }) {
     if (progress === 100 && !isLoaded) {
       setIsLoaded(true);
       setTimeout(() => {
-        setOpacity(0);
         animatePageIn(window.innerWidth, window.innerHeight);
-        setTimeout(() => {
-          unlockScroll();
-        }, 1500);
       }, 2250);
     }
   }, [progress, isLoaded]);
@@ -51,7 +45,7 @@ export default function Template({ children }) {
   return (
     <>
       <div
-        style={{ opacity: opacity }}
+        id="banner-4"
         className="fixed w-screen h-screen z-[89] pointer-events-none bg-black"
       />
       <svg

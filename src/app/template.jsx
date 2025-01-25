@@ -2,7 +2,13 @@
 
 import LogoSVG from "@/assets/Header/logo";
 import { animatePageIn } from "@/components/PageTransition";
-import { slideUpLoading, widthLoadingAnim } from "@/utils/loadingAnim";
+import {
+  logoLoading,
+  opacityLoading,
+  slideFromRightLoading,
+  slideUpLoading,
+  widthLoadingAnim,
+} from "@/utils/loadingAnim";
 import { useProgress } from "@react-three/drei";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -36,7 +42,7 @@ export default function Template({ children }) {
         setTimeout(() => {
           unlockScroll();
         }, 1500);
-      }, 1500);
+      }, 2250);
     }
   }, [progress, isLoaded]);
 
@@ -54,7 +60,7 @@ export default function Template({ children }) {
       </svg>
       <div
         id="banner-2"
-        className="fixed left-[50%] top-[40%] -translate-x-[50%] text-white z-[100] pointer-events-none"
+        className="fixed left-[50%] top-[45%] -translate-x-[50%] text-white z-[100] pointer-events-none"
       >
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-[2px]">
@@ -65,14 +71,49 @@ export default function Template({ children }) {
                 animate={progress === 100 ? "open" : "closed"}
                 className="text-5xl font-light"
               >
-                ZER
+                <motion.div
+                  variants={slideFromRightLoading}
+                  initial="initial"
+                  custom={1}
+                  animate={progress === 100 ? "open" : "closed"}
+                >
+                  ZER
+                </motion.div>
               </motion.div>
             </div>
-            <LogoSVG fill="white" className={"w-[37px] h-[37px] -mt-[9px]"} />
+            <motion.div
+              variants={opacityLoading}
+              initial="initial"
+              animate={progress === 100 ? "closed" : "open"}
+              className="text-2xl"
+            >
+              L
+            </motion.div>
+            <motion.div
+              variants={logoLoading}
+              initial="initial"
+              animate={progress === 100 ? "open" : "closed"}
+              className="-mt-[9px]"
+            >
+              <LogoSVG fill="white" className={"w-full h-full"} />
+            </motion.div>
+            <motion.div
+              variants={opacityLoading}
+              initial="initial"
+              animate={progress === 100 ? "closed" : "open"}
+              className="text-2xl flex gap-[1px] items-center"
+            >
+              <div>ading</div>
+              <div className="h-[24px] flex items-end gap-[1px]">
+                <div class="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.3s]" />
+                <div class="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.15s]" />
+                <div class="h-1 w-1 bg-white rounded-full animate-bounce" />
+              </div>
+            </motion.div>
           </div>
           <div className="overflow-hidden">
             <motion.div
-              custom={1}
+              custom={2}
               variants={slideUpLoading}
               initial="initial"
               animate={progress === 100 ? "open" : "closed"}

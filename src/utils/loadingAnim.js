@@ -4,7 +4,7 @@ export const slideFromRightLoading = {
   },
   open: (i) => ({
     x: 0,
-    transition: { duration: 0.75, delay: 0.1 * i },
+    transition: { duration: 0.75, delay: 0.75 * i },
   }),
   closed: {
     x: "100%",
@@ -50,5 +50,41 @@ export const slideUpLoading = {
   }),
   closed: {
     y: "-100%",
+  },
+};
+
+export const opacityLoading = {
+  initial: {
+    opacity: 1,
+  },
+  open: (i) => ({
+    width: 0,
+    opacity: 0,
+    height: 0,
+    transition: { duration: 0.5, delay: 0.75 * i },
+  }),
+  closed: {
+    width: 0,
+    height: 0,
+    opacity: 0,
+  },
+};
+
+export const logoLoading = {
+  initial: {
+    width: 18,
+    height: 18,
+    marginTop: "0px",
+  },
+  open: (i) => ({
+    width: 37,
+    height: 37,
+    marginTop: "-9px",
+    transition: { duration: 0.5, delay: 0.75 * i },
+  }),
+  closed: {
+    width: 37,
+    height: 37,
+    marginTop: "-9px",
   },
 };

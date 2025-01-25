@@ -50,13 +50,13 @@ export default function Template({ children }) {
       />
       <svg
         id="banner-1"
-        className="h-[calc(100vh+600px)] w-screen z-[90] fixed top-0 left-0 pointer-events-none"
+        className="h-[calc(100vh+600px)] w-screen z-[90] fixed top-0 left-0 pointer-events-none will-change-transform"
       >
         <path id="banner-3" style={{ fill: "black" }}></path>
       </svg>
       <div
         id="banner-2"
-        className="fixed left-[50%] top-[45%] -translate-x-[50%] text-white z-[100] pointer-events-none"
+        className="fixed left-[50%] top-[45%] -translate-x-[50%] text-white z-[100] pointer-events-none will-change-transform"
       >
         <div className="flex items-center">
           {/* ZER Animation */}
@@ -64,12 +64,13 @@ export default function Template({ children }) {
             <MotionDiv
               variants={widthLoadingAnim}
               trigger={isLoaded}
-              className={"text-5xl font-light"}
+              className={"text-5xl font-light will-change-transform"}
             >
               <MotionDiv
                 variants={slideFromRightLoading}
                 custom={1}
                 trigger={isLoaded}
+                className={"will-change-transform"}
               >
                 ZER
               </MotionDiv>
@@ -111,7 +112,7 @@ export default function Template({ children }) {
             variants={slideUpLoading}
             custom={2}
             trigger={isLoaded}
-            className={"font-light tracking-[0.15em]"}
+            className={"font-light tracking-[0.15em] will-change-transform"}
           >
             DAWN Studios
           </MotionDiv>

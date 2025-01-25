@@ -10,7 +10,7 @@ import DreamsLine from "./dreams";
 const LandingTitle = () => {
   const words = ["DAWN", "STUDIOS"];
   const container = useRef(null);
-  const { canAnimate } = useLoadingAnimation(2000);
+  const { canAnimate } = useLoadingAnimation(3250);
   return (
     <div
       className="flex flex-col  justify-center

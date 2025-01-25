@@ -61,7 +61,7 @@ export const opacityLoading = {
     width: 0,
     opacity: 0,
     height: 0,
-    transition: { duration: 0.5, delay: 0.75 * i },
+    transition: { duration: 0.75, delay: 0.75 * i },
   }),
   closed: {
     width: 0,

@@ -9,7 +9,7 @@ import { scaleAnimation } from "@/utils/scaleAnim";
 import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 
 const TopHeader = ({ headerRef }) => {
-  const { canAnimate } = useLoadingAnimation(2000);
+  const { canAnimate } = useLoadingAnimation(3250);
   return (
     <header
       ref={headerRef}

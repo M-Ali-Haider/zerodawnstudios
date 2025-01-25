@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 export default function Template({ children }) {
   const { progress } = useProgress();
   const [isLoaded, setIsLoaded] = useState(false);
+  const [opacity, setOpacity] = useState(1);
 
   const lockScroll = () => {
     document.documentElement.style.overflow = "hidden";
@@ -36,8 +37,9 @@ export default function Template({ children }) {
       lockScroll();
     }
     if (progress === 100 && !isLoaded) {
+      setIsLoaded(true);
       setTimeout(() => {
-        setIsLoaded(true);
+        setOpacity(0);
         animatePageIn(window.innerWidth, window.innerHeight);
         setTimeout(() => {
           unlockScroll();
@@ -49,7 +51,7 @@ export default function Template({ children }) {
   return (
     <>
       <div
-        style={{ opacity: isLoaded ? 0 : 1 }}
+        style={{ opacity: opacity }}
         className="fixed w-screen h-screen z-[89] pointer-events-none bg-black"
       />
       <svg
@@ -68,14 +70,14 @@ export default function Template({ children }) {
               <motion.div
                 variants={widthLoadingAnim}
                 initial="initial"
-                animate={progress === 100 ? "open" : "closed"}
+                animate={isLoaded ? "open" : "closed"}
                 className="text-5xl font-light"
               >
                 <motion.div
                   variants={slideFromRightLoading}
-                  initial="initial"
                   custom={1}
-                  animate={progress === 100 ? "open" : "closed"}
+                  initial="initial"
+                  animate={isLoaded ? "open" : "closed"}
                 >
                   ZER
                 </motion.div>
@@ -84,7 +86,7 @@ export default function Template({ children }) {
             <motion.div
               variants={opacityLoading}
               initial="initial"
-              animate={progress === 100 ? "closed" : "open"}
+              animate={progress === 100 ? "open" : "closed"}
               className="text-2xl"
             >
               L
@@ -100,14 +102,14 @@ export default function Template({ children }) {
             <motion.div
               variants={opacityLoading}
               initial="initial"
-              animate={progress === 100 ? "closed" : "open"}
+              animate={progress === 100 ? "open" : "closed"}
               className="text-2xl flex gap-[1px] items-center"
             >
               <div>ading</div>
               <div className="h-[24px] flex items-end gap-[1px]">
-                <div class="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.3s]" />
-                <div class="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.15s]" />
-                <div class="h-1 w-1 bg-white rounded-full animate-bounce" />
+                <div className="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.3s]" />
+                <div className="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.15s]" />
+                <div className="h-1 w-1 bg-white rounded-full animate-bounce" />
               </div>
             </motion.div>
           </div>
@@ -116,7 +118,7 @@ export default function Template({ children }) {
               custom={2}
               variants={slideUpLoading}
               initial="initial"
-              animate={progress === 100 ? "open" : "closed"}
+              animate={isLoaded ? "open" : "closed"}
               className="font-light tracking-[0.15em]"
             >
               DAWN Studios

@@ -97,7 +97,7 @@ export default function Template({ children }) {
             trigger={isLoaded}
             className={"text-2xl flex gap-1 items-center"}
           >
-            <div>ading {progress}%</div>
+            <div>ading</div>
             <div className="h-[24px] flex items-end gap-[1.5px] -mt-[2px]">
               <div className="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.3s]" />
               <div className="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.15s]" />

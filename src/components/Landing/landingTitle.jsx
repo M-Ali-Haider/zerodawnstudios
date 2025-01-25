@@ -16,8 +16,8 @@ const LandingTitle = () => {
       className="flex flex-col  justify-center
        items-center xl:items-end
        w-full xl:w-auto xl:min-w-[50vw] xl:max-w-[50vw]
-       xs:h-screen
-       mt-40 xs:mt-0
+       xl:h-screen
+       mt-40 xl:mt-0
        px-4 xs:px-0"
       ref={container}
     >

@@ -44,7 +44,8 @@ export default function Scene({ scrollYProgress }) {
     [Math.PI / 8, -Math.PI / 8]
   );
   const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { margin: "-20%" });
+  // const isInView = useInView(containerRef, { margin: "-20%" });
+  const isInView = useInView(containerRef);
 
   const dpr = useMemo(() => {
     return isInView ? [0.95, 1] : [0, 0];
@@ -115,7 +116,7 @@ export default function Scene({ scrollYProgress }) {
       animate={canAnimate ? "open" : "closed"}
       className="relative
        w-full xl:w-auto xl:min-w-[50vw] xl:max-w-[50vw] 
-       h-screen"
+       h-[400px] sm:h-[600px] xl:h-screen"
     >
       <Canvas
         dpr={dpr}

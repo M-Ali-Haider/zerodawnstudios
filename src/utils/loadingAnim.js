@@ -11,35 +11,6 @@ export const slideFromRightLoading = {
   },
 };
 
-export const widthLoadingAnim = {
-  initial: {
-    width: 0,
-  },
-  open: (i) => ({
-    width: "auto",
-    transition: { duration: 0.75, delay: 0.1 * i },
-  }),
-  closed: {
-    width: 0,
-  },
-};
-
-export const scaleLoadingAnim = {
-  initial: {
-    width: "auto",
-    height: "auto",
-  },
-  open: (i) => ({
-    width: 0,
-    height: 0,
-    transition: { duration: 0.75, delay: 0.1 * i },
-  }),
-  closed: {
-    width: "auto",
-    height: "auto",
-  },
-};
-
 export const slideUpLoading = {
   initial: {
     y: "-100%",
@@ -53,16 +24,30 @@ export const slideUpLoading = {
   },
 };
 
+export const widthLoadingAnim = {
+  initial: {
+    width: 0,
+  },
+  open: {
+    width: "89px",
+    transition: { duration: 0.75 },
+  },
+  closed: {
+    width: 0,
+  },
+};
+
 export const opacityLoading = {
   initial: {
     opacity: 1,
   },
-  open: (i) => ({
+
+  open: {
     width: 0,
     opacity: 0,
     height: 0,
-    transition: { duration: 0.75, delay: 0.75 * i },
-  }),
+    transition: { duration: 0.75 },
+  },
   closed: {
     width: 0,
     height: 0,
@@ -72,19 +57,21 @@ export const opacityLoading = {
 
 export const logoLoading = {
   initial: {
-    width: 18,
-    height: 18,
-    marginTop: "0px",
+    width: 15,
+    height: 15,
+    marginTop: "3px",
+    marginRight: "1px",
+    marginLeft: "1px",
   },
-  open: (i) => ({
+  open: {
     width: 37,
     height: 37,
-    marginTop: "-9px",
-    transition: { duration: 0.5, delay: 0.75 * i },
-  }),
+    marginTop: "-11.5px",
+    transition: { duration: 0.5 },
+  },
   closed: {
     width: 37,
     height: 37,
-    marginTop: "-9px",
+    marginTop: "-11.5px",
   },
 };

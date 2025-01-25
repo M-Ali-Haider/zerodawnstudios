@@ -1,6 +1,7 @@
 "use client";
 
 import LogoSVG from "@/assets/Header/logo";
+import MotionDiv from "@/components/MotionDiv";
 import { animatePageIn } from "@/components/PageTransition";
 import {
   logoLoading,
@@ -10,7 +11,6 @@ import {
   widthLoadingAnim,
 } from "@/utils/loadingAnim";
 import { useProgress } from "@react-three/drei";
-import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Template({ children }) {
@@ -64,66 +64,63 @@ export default function Template({ children }) {
         id="banner-2"
         className="fixed left-[50%] top-[45%] -translate-x-[50%] text-white z-[100] pointer-events-none"
       >
-        <div className="flex flex-col items-center">
-          <div className="flex items-center gap-[2px]">
-            <div className="overflow-hidden">
-              <motion.div
-                variants={widthLoadingAnim}
-                initial="initial"
-                animate={isLoaded ? "open" : "closed"}
-                className="text-5xl font-light"
-              >
-                <motion.div
-                  variants={slideFromRightLoading}
-                  custom={1}
-                  initial="initial"
-                  animate={isLoaded ? "open" : "closed"}
-                >
-                  ZER
-                </motion.div>
-              </motion.div>
-            </div>
-            <motion.div
-              variants={opacityLoading}
-              initial="initial"
-              animate={progress === 100 ? "open" : "closed"}
-              className="text-2xl"
-            >
-              L
-            </motion.div>
-            <motion.div
-              variants={logoLoading}
-              initial="initial"
-              animate={progress === 100 ? "open" : "closed"}
-              className="-mt-[9px]"
-            >
-              <LogoSVG fill="white" className={"w-full h-full"} />
-            </motion.div>
-            <motion.div
-              variants={opacityLoading}
-              initial="initial"
-              animate={progress === 100 ? "open" : "closed"}
-              className="text-2xl flex gap-[1px] items-center"
-            >
-              <div>ading</div>
-              <div className="h-[24px] flex items-end gap-[1px]">
-                <div className="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.3s]" />
-                <div className="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.15s]" />
-                <div className="h-1 w-1 bg-white rounded-full animate-bounce" />
-              </div>
-            </motion.div>
-          </div>
+        <div className="flex items-center">
+          {/* ZER Animation */}
           <div className="overflow-hidden">
-            <motion.div
-              custom={2}
-              variants={slideUpLoading}
-              initial="initial"
-              animate={isLoaded ? "open" : "closed"}
-              className="font-light tracking-[0.15em]"
+            <MotionDiv
+              variants={widthLoadingAnim}
+              trigger={isLoaded}
+              className={"text-5xl font-light"}
             >
-              DAWN Studios
-            </motion.div>
+              <MotionDiv
+                variants={slideFromRightLoading}
+                custom={1}
+                trigger={isLoaded}
+              >
+                ZER
+              </MotionDiv>
+            </MotionDiv>
           </div>
+
+          {/* Loading Animation Part 1 */}
+          <MotionDiv
+            variants={opacityLoading}
+            trigger={isLoaded}
+            className={"text-2xl"}
+          >
+            L
+          </MotionDiv>
+
+          {/* LogoSVG Animation */}
+          <MotionDiv variants={logoLoading} trigger={isLoaded}>
+            <LogoSVG fill="white" className={"w-full h-full"} />
+          </MotionDiv>
+
+          {/* Loading Animation Part 2 */}
+          <MotionDiv
+            variants={opacityLoading}
+            trigger={isLoaded}
+            className={"text-2xl flex gap-1 items-center"}
+          >
+            <div>ading</div>
+            <div className="h-[24px] flex items-end gap-[1.5px]">
+              <div className="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.3s]" />
+              <div className="h-1 w-1 bg-white rounded-full animate-bounce [animation-delay:-0.15s]" />
+              <div className="h-1 w-1 bg-white rounded-full animate-bounce" />
+            </div>
+          </MotionDiv>
+        </div>
+
+        {/* Dawn Studios Animation */}
+        <div className="overflow-hidden">
+          <MotionDiv
+            variants={slideUpLoading}
+            custom={2}
+            trigger={isLoaded}
+            className={"font-light tracking-[0.15em]"}
+          >
+            DAWN Studios
+          </MotionDiv>
         </div>
       </div>
       {children}

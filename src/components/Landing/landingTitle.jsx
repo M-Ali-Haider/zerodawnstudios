@@ -34,13 +34,14 @@ const LandingTitle = () => {
               animate={canAnimate ? "open" : "closed"}
               className="w-full flex items-center"
             >
-              <div className="">ZER</div>
+              <div>ZER</div>
               <motion.div
                 custom={2}
                 variants={zeroAnim}
                 initial="initial"
                 animate={canAnimate ? "open" : "closed"}
-                className="overflow-hidden aspect-square 
+                className="overflow-hidden 
+                -mt-[6px] ml:-mt-2 xs:-mt-[10px] md:-mt-[14px]
                 h-[54.52px] ml:h-[63.61px] xs:h-[72.7px] md:h-[95px]"
               >
                 <div

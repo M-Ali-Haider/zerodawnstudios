@@ -53,7 +53,7 @@ const LandingTitle = () => {
                 "
                 >
                   <Image
-                    src={"/zero.png"}
+                    src={"/zero.webp"}
                     fill
                     alt="zero's o image"
                     className=""

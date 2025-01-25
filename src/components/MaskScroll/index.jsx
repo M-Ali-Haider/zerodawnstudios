@@ -29,7 +29,7 @@ const MaskScroll = () => {
     <>
       <div
         ref={container}
-        className={`h-[600vh] sm:h-[400vh] w-full sticky top-0 -mt-[90vh]`}
+        className={`h-[400vh] w-full sticky top-0 -mt-[90vh]`}
       >
         <div className="relative w-full h-full">
           <motion.div

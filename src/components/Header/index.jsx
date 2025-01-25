@@ -7,35 +7,22 @@ import TopHeader from "./top";
 
 const Header = () => {
   const bottomHeader = useRef(null);
-  const logoRef = useRef(null);
-  const optionsRef = useRef(null);
+  const topHeader = useRef(null);
   const lastButtonRef = useRef(null);
-  const topGlassHeaderRef = useRef(null);
 
   const [isContact, setIsContact] = useState(true);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.to(logoRef.current, {
+    gsap.to(topHeader.current, {
       scrollTrigger: {
         trigger: document.documentElement,
         start: "top top",
-        end: `${window.innerHeight}px top`,
+        // end: `${window.innerHeight}px top`,
+        end: `50px top`,
         onLeave: () => {
           setIsContact(false);
-          gsap.to(logoRef.current, {
-            y: "-82px",
-            opacity: 0,
-            duration: 0.3,
-            ease: "power1.out",
-          });
-          gsap.to(optionsRef.current, {
-            y: "-82px",
-            opacity: 0,
-            duration: 0.3,
-            ease: "power1.out",
-          });
-          gsap.to(topGlassHeaderRef.current, {
+          gsap.to(topHeader.current, {
             y: "-82px",
             opacity: 0,
             duration: 0.3,
@@ -49,25 +36,13 @@ const Header = () => {
           });
           gsap.to(lastButtonRef.current, {
             width: "57.6px",
-            duration: 0.3,
+            duration: 0.5,
             ease: "power1.out",
           });
         },
         onEnterBack: () => {
           setIsContact(true);
-          gsap.to(logoRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.3,
-            ease: "power1.out",
-          });
-          gsap.to(optionsRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 0.3,
-            ease: "power1.out",
-          });
-          gsap.to(topGlassHeaderRef.current, {
+          gsap.to(topHeader.current, {
             y: 0,
             opacity: 1,
             duration: 0.3,
@@ -91,10 +66,8 @@ const Header = () => {
   return (
     <>
       <TopHeader
-        logoRef={logoRef}
-        optionsRef={optionsRef}
+        topHeader={topHeader}
         lastButtonRef={lastButtonRef}
-        topGlassHeaderRef={topGlassHeaderRef}
         isContact={isContact}
       />
       <BottomHeader headerRef={bottomHeader} />

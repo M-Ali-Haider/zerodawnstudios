@@ -14,7 +14,9 @@ const LenisScrollProvider = ({ children }) => {
       //   duration: 1.2,
       //   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       // });
-      lenisRef.current = new Lenis();
+      lenisRef.current = new Lenis({
+        syncTouch: true,
+      });
       const raf = (time) => {
         lenisRef.current?.raf(time);
         rafHandleRef.current = requestAnimationFrame(raf);

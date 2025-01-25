@@ -3,6 +3,7 @@ import { scaleAnimationButton } from "@/utils/scaleAnim";
 import { slideUpDescription } from "@/utils/textAnim";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import DennisButton from "../Button/dennis";
 
 const WhatWeDo = () => {
   const container = useRef(null);
@@ -49,16 +50,16 @@ const WhatWeDo = () => {
             </div>
           ))}
         </div>
-        <motion.button
-          variants={scaleAnimationButton}
-          initial="initial"
-          animate={isInView ? "open" : "closed"}
-          className="mt-9 font-normal text-2xl leading-[31.13px] 
-            border border-black w-full rounded-full py-[74px]"
-        >
-          Contact Us
-        </motion.button>
       </div>
+      <motion.div
+        variants={scaleAnimationButton}
+        initial="initial"
+        animate={isInView ? "open" : "closed"}
+        className="font-normal text-2xl leading-[31.13px] 
+            border border-black w-full rounded-full py-[74px] text-center"
+      >
+        Contact Us
+      </motion.div>
     </div>
   );
 };

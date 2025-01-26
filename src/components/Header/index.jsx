@@ -12,12 +12,12 @@ const Header = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+
     gsap.to(topHeader.current, {
       scrollTrigger: {
         trigger: document.documentElement,
         start: "top top",
-        // end: `${window.innerHeight}px top`,
-        end: `50px top`,
+        end: `${window.innerHeight}px top`,
         onLeave: () => {
           gsap.to(topHeader.current, {
             y: "-82px",
@@ -29,11 +29,6 @@ const Header = () => {
             scale: 1,
             opacity: 1,
             duration: 0.5,
-            ease: "power1.out",
-          });
-          gsap.to(lastButtonRef.current, {
-            scale: 1,
-            duration: 0.3,
             ease: "power1.out",
           });
         },
@@ -48,11 +43,6 @@ const Header = () => {
             scale: 0,
             opacity: 0,
             duration: 0.5,
-            ease: "power1.out",
-          });
-          gsap.to(lastButtonRef.current, {
-            scale: 0,
-            duration: 0.3,
             ease: "power1.out",
           });
         },

@@ -54,8 +54,8 @@ const WhatWeDo = () => {
             </div>
           ))}
         </div>
-        <LandingContactButton />
       </div>
+      <LandingContactButton />
     </div>
   );
 };

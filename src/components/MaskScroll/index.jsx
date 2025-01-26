@@ -24,7 +24,9 @@ const MaskScroll = () => {
     target: container,
     offset: ["start start", "275vh"],
   });
-  const maskSize = useTransform(scrollYProgress, [0, 1], maskSizeRange);
+  const maskSize = useTransform(scrollYProgress, [0, 1], maskSizeRange, {
+    ease: easeInOut,
+  });
   return (
     <>
       <div

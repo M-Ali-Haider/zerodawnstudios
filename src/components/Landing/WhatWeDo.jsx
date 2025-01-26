@@ -1,21 +1,25 @@
 "use client";
-import { scaleAnimationButton } from "@/utils/scaleAnim";
 import { slideUpDescription } from "@/utils/textAnim";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import DennisButton from "../Button/dennis";
+import LandingContactButton from "./contact";
+import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 const WhatWeDo = () => {
+  const { width } = useWindowDimensions();
   const container = useRef(null);
-  const isInView = useInView(container, { margin: "-1%", once: true });
-  const first = ["WHAT", "WE", "DO"];
+  const isInView = useInView(container, {
+    margin: width > 1280 ? "-1%" : "0%",
+    once: width > 1280 ? true : false,
+  });
+  const first = ["WHO", "WE", "ARE"];
   const second =
     "Zero Dawn Studios is a leading digital agency focused on branding, UI/UX design, mobile, and web development.";
   return (
     <div
       ref={container}
       className="flex flex-col  
-       xs:h-screen xs:pb-0 pb-20
+       xs:h-screen pb-20 xs:pb-0
        items-center xl:items-start
        w-full xl:w-auto xl:min-w-[50vw] xl:max-w-[50vw]
        px-4 xs:px-0
@@ -50,15 +54,7 @@ const WhatWeDo = () => {
             </div>
           ))}
         </div>
-        <motion.div
-          variants={scaleAnimationButton}
-          initial="initial"
-          animate={isInView ? "open" : "closed"}
-          className="font-normal text-2xl leading-[31.13px] 
-            border border-black w-full rounded-full py-[74px] text-center"
-        >
-          Contact Us
-        </motion.div>
+        <LandingContactButton />
       </div>
     </div>
   );

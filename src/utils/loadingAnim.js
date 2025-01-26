@@ -41,7 +41,6 @@ export const opacityLoading = {
   initial: {
     opacity: 1,
   },
-
   open: {
     width: 0,
     opacity: 0,
@@ -49,9 +48,7 @@ export const opacityLoading = {
     transition: { duration: 0.75 },
   },
   closed: {
-    width: 0,
-    height: 0,
-    opacity: 0,
+    opacity: 1,
   },
 };
 
@@ -62,16 +59,21 @@ export const logoLoading = {
     marginTop: "3px",
     marginRight: "1px",
     marginLeft: "1px",
+    rotate: -90,
   },
   open: {
     width: 37,
     height: 37,
     marginTop: "-11.5px",
     transition: { duration: 0.5 },
+    rotate: 0,
   },
   closed: {
-    width: 37,
-    height: 37,
-    marginTop: "-11.5px",
+    width: 15,
+    height: 15,
+    marginTop: "3px",
+    marginRight: "1px",
+    marginLeft: "1px",
+    rotate: 0,
   },
 };

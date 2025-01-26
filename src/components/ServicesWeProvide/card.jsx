@@ -18,6 +18,7 @@ const Card = ({ item, propRef }) => {
           className=""
           loading="eager"
           priority
+          sizes="33vw"
         />
         <Image
           src={item.src}
@@ -27,6 +28,7 @@ const Card = ({ item, propRef }) => {
           className={`object-contain`}
           loading="eager"
           priority
+          sizes="33vw"
         />
       </div>
       <div className="mt-4">

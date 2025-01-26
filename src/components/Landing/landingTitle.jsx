@@ -55,6 +55,7 @@ const LandingTitle = () => {
                   <Image
                     src={"/zero.webp"}
                     fill
+                    sizes="33vw"
                     alt="zero's o image"
                     className=""
                   />

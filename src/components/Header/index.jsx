@@ -10,8 +10,6 @@ const Header = () => {
   const topHeader = useRef(null);
   const lastButtonRef = useRef(null);
 
-  const [isContact, setIsContact] = useState(true);
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap.to(topHeader.current, {
@@ -21,7 +19,6 @@ const Header = () => {
         // end: `${window.innerHeight}px top`,
         end: `50px top`,
         onLeave: () => {
-          setIsContact(false);
           gsap.to(topHeader.current, {
             y: "-82px",
             opacity: 0,
@@ -35,13 +32,12 @@ const Header = () => {
             ease: "power1.out",
           });
           gsap.to(lastButtonRef.current, {
-            width: "57.6px",
-            duration: 0.5,
+            scale: 1,
+            duration: 0.3,
             ease: "power1.out",
           });
         },
         onEnterBack: () => {
-          setIsContact(true);
           gsap.to(topHeader.current, {
             y: 0,
             opacity: 1,
@@ -55,7 +51,7 @@ const Header = () => {
             ease: "power1.out",
           });
           gsap.to(lastButtonRef.current, {
-            width: "147.79px",
+            scale: 0,
             duration: 0.3,
             ease: "power1.out",
           });
@@ -65,11 +61,7 @@ const Header = () => {
   }, []);
   return (
     <>
-      <TopHeader
-        topHeader={topHeader}
-        lastButtonRef={lastButtonRef}
-        isContact={isContact}
-      />
+      <TopHeader topHeader={topHeader} lastButtonRef={lastButtonRef} />
       <BottomHeader headerRef={bottomHeader} />
     </>
   );

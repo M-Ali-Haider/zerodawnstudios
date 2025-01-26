@@ -4,7 +4,7 @@ const MotionDiv = ({ variants, trigger, children, className, custom = 0 }) => {
     <motion.div
       variants={variants}
       initial="initial"
-      animate={trigger ? "open" : "closed"}
+      animate={trigger ? "open" : "initial"}
       className={className}
       custom={custom}
     >

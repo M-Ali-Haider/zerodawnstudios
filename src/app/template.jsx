@@ -114,7 +114,7 @@ export default function Template({ children }) {
             trigger={isLoaded}
             className={"font-light tracking-[0.15em] will-change-transform"}
           >
-            DAWN Studios
+            DAWN STUDIOS
           </MotionDiv>
         </div>
       </div>

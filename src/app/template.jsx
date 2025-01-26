@@ -112,9 +112,9 @@ export default function Template({ children }) {
             variants={slideUpLoading}
             custom={2}
             trigger={isLoaded}
-            className={"font-light tracking-[0.15em] will-change-transform"}
+            className={"font-light tracking-[0.19em] will-change-transform"}
           >
-            DAWN STUDIOS
+            Dawn Studios
           </MotionDiv>
         </div>
       </div>

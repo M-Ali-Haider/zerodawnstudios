@@ -1,5 +1,5 @@
 import { maskCards } from "@/utils/maskCards";
-import { motion, useTransform } from "framer-motion";
+import { easeInOut, motion, useTransform } from "framer-motion";
 import Card from "./card";
 const classNames = [
   "-left-[30%] -top-[27%]",
@@ -10,11 +10,14 @@ const classNames = [
 
 const InsideMask = ({ scrollYProgress }) => {
   // const scaleCenter = useTransform(scrollYProgress, [0, 1], [4, 1]);
-  const scale5 = useTransform(scrollYProgress, [0, 1], [5, 1]);
-  const scale6 = useTransform(scrollYProgress, [0, 1], [6, 1]);
-  const scale7 = useTransform(scrollYProgress, [0, 1], [7, 1]);
-  const scale8 = useTransform(scrollYProgress, [0, 1], [8, 1]);
-  const scale9 = useTransform(scrollYProgress, [0, 1], [9, 1]);
+  const options = {
+    ease: easeInOut,
+  };
+  const scale5 = useTransform(scrollYProgress, [0, 1], [5, 1], options);
+  const scale6 = useTransform(scrollYProgress, [0, 1], [6, 1], options);
+  const scale7 = useTransform(scrollYProgress, [0, 1], [7, 1], options);
+  const scale8 = useTransform(scrollYProgress, [0, 1], [8, 1], options);
+  const scale9 = useTransform(scrollYProgress, [0, 1], [9, 1], options);
 
   const scaleMap = {
     0: scale6,

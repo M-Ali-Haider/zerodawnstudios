@@ -56,6 +56,7 @@ const Landing = () => {
   return (
     <>
       <motion.div
+        id="about"
         className={`w-full xl:h-[200vh] relative`}
         ref={containerRef}
         style={{ backgroundColor: isLargeScreen ? bgColor : "#fff" }}

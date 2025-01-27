@@ -49,6 +49,7 @@ const ServicesWeProvide = () => {
         title={"Our Services"}
       />
       <div
+        id="services"
         ref={containerRef}
         className="relative bg-black h-[300vh] sm:h-[250vh]"
       >

@@ -1,12 +1,12 @@
 "use client";
 import TopBurgerMenuSVG from "@/assets/Header/topBurgerMenu";
+import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
+import { useLenis } from "@/providers/LenisScroll";
 import { scaleAnimation } from "@/utils/scaleAnim";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
+import { useEffect, useRef, useState } from "react";
 import Sidebar from "./sidebar";
-import { useLenis } from "@/providers/LenisScroll";
 
 const BurgerMenu = () => {
   const { lockScroll, unlockScroll } = useLenis();
@@ -17,6 +17,16 @@ const BurgerMenu = () => {
   let timeoutId = null;
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleBMClick = () => {
+    if (isOpen) {
+      unlockScroll();
+      setIsOpen(false);
+    } else {
+      lockScroll();
+      setIsOpen(true);
+    }
+  };
 
   useEffect(() => {
     const xTo = gsap.quickTo(buttonRef.current, "x", {
@@ -83,15 +93,6 @@ const BurgerMenu = () => {
     }, 150);
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      lockScroll();
-    } else {
-      unlockScroll();
-    }
-    return () => unlockScroll();
-  }, [isOpen, lockScroll, unlockScroll]);
-
   return (
     <>
       <motion.div
@@ -103,7 +104,7 @@ const BurgerMenu = () => {
         text-base text-white cursor-pointer"
       >
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={handleBMClick}
           ref={buttonRef}
           className="relative flex justify-center overflow-hidden rounded-full 
           border border-white"
@@ -125,7 +126,10 @@ const BurgerMenu = () => {
       <AnimatePresence mode="wait">
         {isOpen && (
           <motion.div
-            onClick={() => setIsOpen(false)}
+            onClick={() => {
+              unlockScroll();
+              setIsOpen(false);
+            }}
             className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-20 z-[40]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

@@ -1,7 +1,7 @@
 export const sectionsHeader = [
-  { name: "Home", id: "" },
-  { name: "About", id: "" },
-  { name: "Projects", id: "" },
-  { name: "Testimonials", id: "" },
-  { name: "Services", id: "" },
+  { name: "About", id: "#about" },
+  { name: "Projects", id: "#projects" },
+  { name: "Testimonials", id: "#testimonials" },
+  { name: "Services", id: "#services" },
+  { name: "Contact", id: "#contact" },
 ];

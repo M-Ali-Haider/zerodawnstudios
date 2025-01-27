@@ -51,8 +51,22 @@ const LenisScrollProvider = ({ children }) => {
     }
   };
 
+  const scrollToSection = (id) => {
+    unlockScroll();
+    const element = document.querySelector(id);
+    if (element) {
+      lenisRef.current.scrollTo(element, {
+        duration: 5,
+        lock: false,
+        offset: id === "#testimonials" ? window.innerHeight * 3 : 0,
+      });
+    }
+  };
+
   return (
-    <LenisContext.Provider value={{ lockScroll, unlockScroll }}>
+    <LenisContext.Provider
+      value={{ lockScroll, unlockScroll, scrollToSection }}
+    >
       {children}
     </LenisContext.Provider>
   );

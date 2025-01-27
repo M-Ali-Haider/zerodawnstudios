@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import DennisMagnetButton from "../Button/dennisMagnet";
+import { useLenis } from "@/providers/LenisScroll";
 
-export default function SidebarLink({ item, index }) {
+export default function SidebarLink({ item, index, setIsOpen }) {
+  const { scrollToSection } = useLenis();
   return (
     <motion.div
       key={index}
@@ -13,7 +15,13 @@ export default function SidebarLink({ item, index }) {
       className="pl-7 md:pl-20"
     >
       <DennisMagnetButton range={0.5}>
-        <button className=" cursor-pointer text-white text-2xl md:text-3xl">
+        <button
+          onClick={() => {
+            setIsOpen(false);
+            scrollToSection(item.id);
+          }}
+          className=" cursor-pointer text-white text-2xl md:text-3xl"
+        >
           {item.name}
         </button>
       </DennisMagnetButton>

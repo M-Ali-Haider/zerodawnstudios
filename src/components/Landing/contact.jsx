@@ -49,16 +49,15 @@ const LandingContactButton = () => {
     hoverTimeline
       .to(buttonRef.current, {
         width: "100%",
-        fontSize: "25px",
         ease: "power1",
         duration: 0.35,
       })
       .to(
         buttonRef.current,
         {
-          fontSize: "25px",
-          ease: "elastic.in",
-          duration: 0.35,
+          fontSize: "26px",
+          ease: "power1",
+          duration: 0.15,
         },
         "<"
       )
@@ -71,8 +70,8 @@ const LandingContactButton = () => {
         buttonRef.current,
         {
           fontSize: "24px",
-          ease: "elastic.out",
-          duration: 0.35,
+          ease: "power1",
+          duration: 0.15,
         },
         "<"
       );
@@ -86,7 +85,7 @@ const LandingContactButton = () => {
   const manageMouseLeave = () => {
     timeoutId = setTimeout(() => {
       timeline.current.play();
-    }, 300);
+    }, 150);
   };
 
   return (
@@ -96,11 +95,11 @@ const LandingContactButton = () => {
       initial="initial"
       custom={width > 1280 ? 1.25 : 0.75}
       animate={isInView ? "open" : "closed"}
-      className="max-w-[544px] mt-9 w-full flex items-center justify-center"
+      className="max-w-[565.76px] mt-9 w-full flex items-center justify-center"
     >
       <button
         ref={buttonRef}
-        className={`w-[96%] relative flex text-2xl justify-center rounded-full border border-black overflow-hidden mt-9`}
+        className={`w-[96%] relative flex text-2xl justify-center rounded-full border border-black overflow-hidden`}
         onMouseEnter={() => manageMouseEnter()}
         onMouseLeave={() => manageMouseLeave()}
       >

@@ -48,7 +48,7 @@ const InsideMask = ({ scrollYProgress }) => {
           <motion.div
             style={{ scale: scaleMap[index] }}
             key={index}
-            className="w-full h-full absolute top-0 flex items-center justify-center"
+            className="w-full h-full absolute top-0 flex items-center justify-center will-change-transform"
           >
             <Card
               item={item}

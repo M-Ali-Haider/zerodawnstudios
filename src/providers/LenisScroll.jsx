@@ -1,19 +1,23 @@
 "use client";
 
 import Lenis from "@studio-freight/lenis";
-import { useEffect, useRef } from "react";
+import { createContext, useContext, useEffect, useRef } from "react";
+
+const LenisContext = createContext(null);
+
+export const useLenis = () => {
+  const context = useContext(LenisContext);
+  if (!context) {
+    throw new Error("useLenis must be used within a LenisScrollProvider");
+  }
+  return context;
+};
 
 const LenisScrollProvider = ({ children }) => {
   const lenisRef = useRef(undefined);
   const rafHandleRef = useRef(null);
   useEffect(() => {
-    window.scrollTo(0, 0);
-
     if (!lenisRef.current) {
-      // lenisRef.current = new Lenis({
-      //   duration: 1.2,
-      //   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      // });
       lenisRef.current = new Lenis({
         syncTouch: true,
       });
@@ -34,7 +38,24 @@ const LenisScrollProvider = ({ children }) => {
       }
     };
   }, []);
-  return children;
+
+  const lockScroll = () => {
+    if (lenisRef.current) {
+      lenisRef.current.stop();
+    }
+  };
+
+  const unlockScroll = () => {
+    if (lenisRef.current) {
+      lenisRef.current.start();
+    }
+  };
+
+  return (
+    <LenisContext.Provider value={{ lockScroll, unlockScroll }}>
+      {children}
+    </LenisContext.Provider>
+  );
 };
 
 export default LenisScrollProvider;

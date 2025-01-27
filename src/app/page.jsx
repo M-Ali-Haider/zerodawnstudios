@@ -10,8 +10,8 @@ import ServicesWeProvide from "@/components/ServicesWeProvide";
 export default function Homepage() {
   return (
     <>
-      <Header />
-      <BurgerMenu />
+      <Header /> {/* Has position fixed */}
+      <BurgerMenu /> {/* Has position fixed */}
       <Landing />
       <Projects />
       <ServicesWeProvide />

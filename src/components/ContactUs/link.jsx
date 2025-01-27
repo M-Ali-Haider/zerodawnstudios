@@ -15,12 +15,12 @@ const FooterLink = ({ item, index }) => {
       ref={container}
       onMouseEnter={() => setAnimate(true)}
       onMouseLeave={() => setAnimate(false)}
-      className="relative cursor-pointer px-4 xs:px-8"
+      className="relative cursor-pointer"
     >
       <div
         className={`${index === 0 && "border-t"} 
         border-b border-red
-        flex items-center justify-between py-9`}
+        flex items-center justify-between py-9 px-4 xs:px-8`}
       >
         <div className="overflow-hidden">
           <motion.div

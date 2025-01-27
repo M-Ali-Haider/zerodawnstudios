@@ -23,20 +23,31 @@ export default function Sidebar({ setIsOpen }) {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="fixed top-0 right-0 h-full w-full sm:w-2/5 z-40 bg-black"
+      className="fixed hidden lg:block top-0 right-0 h-full w-2/5 z-40 bg-black"
     >
-      <div className="relative overflow-visible no-scrollbar h-full w-full flex flex-col gap-4">
-        <div className="h-24"></div>
-        {sectionsHeader.map((item, index) => {
-          return (
-            <SidebarLink
-              key={index}
-              item={item}
-              index={index}
-              setIsOpen={setIsOpen}
-            />
-          );
-        })}
+      <div className="relative overflow-visible h-full w-full flex flex-col justify-center gap-4">
+        <div className="sm:pl-[41px]">
+          <div className="flex flex-col gap-3">
+            {sectionsHeader.map((item, index) => {
+              return (
+                <SidebarLink
+                  key={index}
+                  item={item}
+                  index={index}
+                  setIsOpen={setIsOpen}
+                />
+              );
+            })}
+          </div>
+          <div className="mt-[72px]">
+            <div className="text-[#6D6D6D] leading-[20.75px] font-normal">
+              Email us
+            </div>
+            <div className="font-light text-2xl leading-[31.13px] text-white">
+              zerodawnstudios@gmail.com
+            </div>
+          </div>
+        </div>
         <SidebarCurve />
       </div>
     </motion.div>

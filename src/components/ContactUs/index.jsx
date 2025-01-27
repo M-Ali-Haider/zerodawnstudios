@@ -6,7 +6,7 @@ const ContactUs = () => {
   return (
     <div
       id="contact"
-      className="pt-16 pb-[78px] lg:pb-[78px] bg-black min-h-screen"
+      className="pt-16 pb-[78px] lg:pb-[0px] bg-black min-h-screen"
     >
       <FooterHeading title={"Contact Us"} className={"mb-8 pl-8 flex"} />
       <div className="">

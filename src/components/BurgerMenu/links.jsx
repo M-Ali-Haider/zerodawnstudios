@@ -12,15 +12,14 @@ export default function SidebarLink({ item, index, setIsOpen }) {
       initial="initial"
       animate="enter"
       exit="exit"
-      className="pl-7 md:pl-20"
     >
       <DennisMagnetButton range={0.5}>
         <button
+          className="font-light text-5xl leading-[62.26px] text-white"
           onClick={() => {
             setIsOpen(false);
             scrollToSection(item.id);
           }}
-          className=" cursor-pointer text-white text-2xl md:text-3xl"
         >
           {item.name}
         </button>

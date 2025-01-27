@@ -1,6 +1,6 @@
 export const services = [
   {
-    title: "(01 Strategy)",
+    title: "(01) Strategy",
     scale: 1.425,
     top: "12px",
     src: "/Services/strategy.webp",

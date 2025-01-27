@@ -1,6 +1,6 @@
 export const contactUsLinks = [
-  { title: "LinkedIn", href: "" },
   { title: "Gmail", href: "" },
-  { title: "Instagram", href: "" },
+  { title: "LinkedIn", href: "" },
   { title: "Whatsapp", href: "" },
+  { title: "Instagram", href: "" },
 ];

@@ -5,7 +5,7 @@ import { useRef } from "react";
 const Heading = () => {
   const headingRef = useRef(null);
   // const heading = ["P", "r", "o", "j", "e", "c", "t", "s"];
-  const heading = ["Featured", "Projects"];
+  const heading = ["Featured", "projects"];
   const isInView = useInView(headingRef);
   return (
     <>

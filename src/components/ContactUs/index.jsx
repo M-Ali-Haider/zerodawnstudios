@@ -9,7 +9,7 @@ const ContactUs = () => {
       className="pt-16 pb-[78px] lg:pb-[78px] bg-black min-h-screen"
     >
       <FooterHeading title={"Contact Us"} className={"mb-8 pl-8 flex"} />
-      <div className="px-4 xs:px-8">
+      <div className="">
         {contactUsLinks.map((item, index) => (
           <FooterLink key={index} item={item} index={index} />
         ))}

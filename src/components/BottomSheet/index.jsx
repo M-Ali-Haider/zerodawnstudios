@@ -1,15 +1,26 @@
 import { sectionsHeader } from "@/utils/sections";
 import BottomSheetWrapper from "./wrapper";
+import BottomSheetLink from "./links";
 
-const BottomSheet = () => {
+const BottomSheet = ({
+  isBottomSheetOpen,
+  openBottomSheet,
+  closeBottomSheet,
+}) => {
   return (
-    <BottomSheetWrapper>
+    <BottomSheetWrapper
+      isBottomSheetOpen={isBottomSheetOpen}
+      openBottomSheet={openBottomSheet}
+      closeBottomSheet={closeBottomSheet}
+    >
       <div className="pl-5 sm:pl-[41px] pb-6 flex gap-16 flex-wrap items-end justify-between">
         <div className="flex flex-col gap-3">
           {sectionsHeader.map((item, index) => (
-            <div className="font-light text-4xl leading-[62.26px]" key={index}>
-              {item.name}
-            </div>
+            <BottomSheetLink
+              closeBottomSheet={closeBottomSheet}
+              key={index}
+              item={item}
+            />
           ))}
         </div>
         <div className="">

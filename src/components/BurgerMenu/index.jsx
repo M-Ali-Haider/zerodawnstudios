@@ -1,15 +1,20 @@
 "use client";
 import TopBurgerMenuSVG from "@/assets/Header/topBurgerMenu";
+import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 import { scaleAnimation } from "@/utils/scaleAnim";
-import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
+import Sidebar from "./sidebar";
 
-const BurgerMenu = ({ canAnimate, lastButtonRef }) => {
+const BurgerMenu = () => {
+  const { canAnimate } = useLoadingAnimation(3250);
   const circle = useRef(null);
   const timeline = useRef(null);
   const buttonRef = useRef(null);
   let timeoutId = null;
+
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const xTo = gsap.quickTo(buttonRef.current, "x", {
@@ -75,32 +80,41 @@ const BurgerMenu = ({ canAnimate, lastButtonRef }) => {
       timeline.current.play();
     }, 150);
   };
+
   return (
-    <motion.div
-      ref={lastButtonRef}
-      custom={3}
-      variants={scaleAnimation}
-      initial="initial"
-      animate={canAnimate ? "open" : "closed"}
-      className="fixed top-6 z-[51] right-4 lg:right-9 mix-blend-difference hidden lg:flex items-center justify-center
+    <>
+      <motion.div
+        custom={3}
+        variants={scaleAnimation}
+        initial="initial"
+        animate={canAnimate ? "open" : "closed"}
+        className="fixed top-6 z-[51] right-4 lg:right-9 mix-blend-difference hidden lg:flex items-center justify-center
         text-base text-white cursor-pointer"
-    >
-      <button
-        ref={buttonRef}
-        className="relative flex justify-center overflow-hidden rounded-full 
-          border-[1.75px] border-white"
-        onMouseEnter={() => manageMouseEnter()}
-        onMouseLeave={() => manageMouseLeave()}
       >
-        <div className="w-[57.6px] h-[57.6px] flex items-center justify-center">
-          <TopBurgerMenuSVG className="w-[25.5px] h-[14.67px] absolute z-10 mix-blend-difference" />
-        </div>
-        <div
-          ref={circle}
-          className={`absolute w-full h-[150%] top-full rounded-[50%] bg-white`}
-        />
-      </button>
-    </motion.div>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          ref={buttonRef}
+          className="relative flex justify-center overflow-hidden rounded-full 
+          border border-white"
+          onMouseEnter={() => manageMouseEnter()}
+          onMouseLeave={() => manageMouseLeave()}
+        >
+          <div className="w-[57.6px] h-[57.6px] flex items-center justify-center">
+            <TopBurgerMenuSVG
+              isOpen={isOpen}
+              className="w-[25.5px] h-[25.5px] absolute z-10 mix-blend-difference"
+            />
+          </div>
+          <div
+            ref={circle}
+            className={`absolute w-full h-[150%] top-full rounded-[50%] bg-white`}
+          />
+        </button>
+      </motion.div>
+      <AnimatePresence mode="wait">
+        {isOpen && <Sidebar setIsOpen={setIsOpen} />}
+      </AnimatePresence>
+    </>
   );
 };
 

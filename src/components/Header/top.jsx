@@ -4,10 +4,9 @@ import { useLoadingAnimation } from "@/hooks/useLoadingAnimation";
 import { scaleAnimation } from "@/utils/scaleAnim";
 import { slideUpLanding } from "@/utils/textAnim";
 import MotionDiv from "../MotionDiv";
-import BurgerMenu from "./burgerMenu";
 import GlassHeader from "./glass";
 
-const TopHeader = ({ topHeader, lastButtonRef }) => {
+const TopHeader = ({ topHeader }) => {
   const { canAnimate } = useLoadingAnimation(3250);
   return (
     <>
@@ -36,7 +35,6 @@ const TopHeader = ({ topHeader, lastButtonRef }) => {
           </div>
         </div>
       </header>
-      <BurgerMenu canAnimate={canAnimate} lastButtonRef={lastButtonRef} />
     </>
   );
 };

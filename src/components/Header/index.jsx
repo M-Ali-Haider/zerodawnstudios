@@ -8,8 +8,6 @@ import TopHeader from "./top";
 const Header = () => {
   const bottomHeader = useRef(null);
   const topHeader = useRef(null);
-  const lastButtonRef = useRef(null);
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -51,7 +49,7 @@ const Header = () => {
   }, []);
   return (
     <>
-      <TopHeader topHeader={topHeader} lastButtonRef={lastButtonRef} />
+      <TopHeader topHeader={topHeader} />
       <BottomHeader headerRef={bottomHeader} />
     </>
   );

@@ -2,7 +2,7 @@
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
 
-const DennisMagnetButton = ({ children }) => {
+const DennisMagnetButton = ({ children, range }) => {
   const magnetic = useRef(null);
   useEffect(() => {
     const xTo = gsap.quickTo(magnetic.current, "x", {
@@ -20,15 +20,15 @@ const DennisMagnetButton = ({ children }) => {
         magnetic.current.getBoundingClientRect();
       const x = clientX - (left + width / 2);
       const y = clientY - (top + height / 2);
-      xTo(x * 0.5);
-      yTo(y * 0.5);
+      xTo(x * range);
+      yTo(y * range);
     });
 
     magnetic.current.addEventListener("mouseleave", (e) => {
       xTo(0);
       yTo(0);
     });
-  }, []);
+  }, [range]);
 
   return React.cloneElement(children, { ref: magnetic });
 };

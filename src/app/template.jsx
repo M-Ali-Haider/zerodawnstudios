@@ -13,7 +13,7 @@ import {
 import { useProgress } from "@react-three/drei";
 import { useEffect, useState } from "react";
 
-const lockScroll = () => {
+export const lockScroll = () => {
   document.documentElement.style.overflow = "hidden";
   document.documentElement.style.maxHeight = "100vh";
   document.body.style.overflow = "hidden";

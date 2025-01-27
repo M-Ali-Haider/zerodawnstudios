@@ -1,5 +1,6 @@
 "use client";
 
+import BurgerMenu from "@/components/BurgerMenu";
 import ContactUs from "@/components/ContactUs";
 import Header from "@/components/Header";
 import Landing from "@/components/Landing";
@@ -10,6 +11,7 @@ export default function Homepage() {
   return (
     <>
       <Header />
+      <BurgerMenu />
       <Landing />
       <Projects />
       <ServicesWeProvide />

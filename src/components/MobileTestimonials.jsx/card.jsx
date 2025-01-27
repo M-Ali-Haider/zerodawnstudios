@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 const Card = ({ item }) => {
   const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true });
+  const isInView = useInView(cardRef, { margin: 50, once: true });
   return (
     <motion.div
       ref={cardRef}

@@ -27,17 +27,18 @@ const InsideMask = ({ scrollYProgress }) => {
   };
   return (
     <>
-      <div className="w-full h-full bg-white xl:hidden"></div>
-      <div className="w-full h-full bg-white relative hidden xl:block">
+      {/* <div className="w-full h-full bg-white xl:hidden"></div> */}
+      {/* hidden xl:block */}
+      <div className="w-full h-full bg-white relative">
         {/* Gradient */}
-        <div className="absolute aspect-[777/798] bg-[#FFE5CB] h-[70%] bottom-0 left-0 rounded-[100%] blur-3xl opacity-70" />
-        <div className="absolute aspect-[1311/522] bg-[#E3D2C1] w-[80%] bottom-0 right-0 rounded-[100%] blur-3xl opacity-70" />
+        <div className="absolute hidden xl:flex aspect-[777/798] bg-[#FFE5CB] h-[70%] bottom-0 left-0 rounded-[100%] blur-3xl opacity-70" />
+        <div className="absolute hidden xl:flex aspect-[1311/522] bg-[#E3D2C1] w-[80%] bottom-0 right-0 rounded-[100%] blur-3xl opacity-70" />
 
         <motion.div
           style={{ scale: scale5 }}
           className="w-full h-full absolute top-0 flex items-center justify-center"
         >
-          <div className="font-normal text-9xl leading-[166.02px] flex flex-col items-center justify-center">
+          <div className="font-normal text-[40px] xl:text-9xl xl:leading-[166.02px] flex flex-col items-center justify-center">
             <div>Look</div>
             <div>what our clients</div>
             <div>have to say</div>
@@ -48,7 +49,7 @@ const InsideMask = ({ scrollYProgress }) => {
           <motion.div
             style={{ scale: scaleMap[index] }}
             key={index}
-            className="w-full h-full absolute top-0 flex items-center justify-center will-change-transform"
+            className="w-full h-full absolute top-0 hidden xl:flex items-center justify-center will-change-transform"
           >
             <Card
               item={item}

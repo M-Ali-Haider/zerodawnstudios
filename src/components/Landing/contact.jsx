@@ -20,6 +20,30 @@ const LandingContactButton = () => {
   let timeoutId = null;
 
   useEffect(() => {
+    const xTo = gsap.quickTo(buttonRef.current, "x", {
+      duration: 1,
+      ease: "elastic.out(1,0.3)",
+    });
+    const yTo = gsap.quickTo(buttonRef.current, "y", {
+      duration: 1,
+      ease: "elastic.out(1,0.3)",
+    });
+
+    buttonRef.current.addEventListener("mousemove", (e) => {
+      const { clientX, clientY } = e;
+      const { width, height, left, top } =
+        buttonRef.current.getBoundingClientRect();
+      const x = clientX - (left + width / 2);
+      const y = clientY - (top + height / 2);
+      xTo(x * 0.15);
+      yTo(y * 0.15);
+    });
+
+    buttonRef.current.addEventListener("mouseleave", (e) => {
+      xTo(0);
+      yTo(0);
+    });
+
     timeline.current = gsap.timeline({ paused: true });
     timeline.current
       .to(

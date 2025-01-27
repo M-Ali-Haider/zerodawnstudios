@@ -91,7 +91,7 @@ const ContentInside = ({ title }) => {
   useEffect(() => {
     const value = Math.floor(width / (textSize + 72));
     const finalValue = value % 2 === 0 ? value : value - 1;
-    setLength(finalValue);
+    setLength(Math.max(finalValue, 2));
   }, [width]);
   return (
     <>

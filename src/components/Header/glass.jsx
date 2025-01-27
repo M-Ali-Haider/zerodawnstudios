@@ -1,5 +1,5 @@
-import BurgerMenuSVG from "@/assets/Header/burgerMenu";
 import LogoSVG from "@/assets/Header/logo";
+import BottomSheet from "../BottomSheet";
 
 const GlassHeader = ({ top = false, topGlassHeaderRef }) => {
   return (
@@ -14,9 +14,7 @@ const GlassHeader = ({ top = false, topGlassHeaderRef }) => {
         <LogoSVG className="w-[34px] h-[34px] xl:w-14 xl:h-14" fill="black" />
         <span className="text-xs xs:text-sm font-light">Zero Dawn Studios</span>
       </div>
-      <button>
-        <BurgerMenuSVG className="w-8 h-8 xs:w-[38px] xs:h-[38px]" />
-      </button>
+      <BottomSheet />
     </div>
   );
 };

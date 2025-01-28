@@ -41,7 +41,7 @@ const LandingTitle = () => {
                 initial="initial"
                 animate={canAnimate ? "open" : "closed"}
                 className="overflow-hidden 
-                -mt-[6px] ml:-mt-2 xs:-mt-[10px] md:-mt-[14px]
+                -mt-[10px] ml:-mt-[13px] xs:-mt-[16px] md:-mt-[19px]
                 h-[54.52px] ml:h-[63.61px] xs:h-[72.7px] md:h-[95px]"
               >
                 <div

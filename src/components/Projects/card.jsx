@@ -1,11 +1,9 @@
 import ArrowSVG from "@/assets/StickyCard/arrow";
-import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
 const Card = ({ item, index, range, targetScale, progress }) => {
-  const { width } = useWindowDimensions();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -19,12 +17,11 @@ const Card = ({ item, index, range, targetScale, progress }) => {
       className={`h-screen items-start xs:items-center flex justify-center sticky top-0`}
     >
       <motion.div
-        className="p-6 w-[94vw] h-auto aspect-[358/557] xs:w-[90vw] xs:h-[82vh] relative rounded-3xl flex xs:flex-col flex-col-reverse xs:gap-10 gap-8"
+        className="p-6 w-[94vw] h-auto aspect-[358/557] xs:w-[90vw] xs:h-[82vh] relative rounded-3xl 
+        flex xs:flex-col flex-col-reverse xs:gap-10 gap-8 will-change-transform"
         style={{
           backgroundColor: item.bg,
-          top: `${
-            width > 1280 ? `calc(${index * 25}px)` : `calc(${index * 25}px)`
-          }`,
+          top: `calc(${index * 25}px)`,
           scale,
         }}
       >

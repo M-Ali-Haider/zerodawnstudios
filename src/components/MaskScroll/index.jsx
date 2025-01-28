@@ -36,7 +36,7 @@ const MaskScroll = () => {
       >
         <div className="relative w-full h-full">
           <motion.div
-            className={`h-screen flex items-center justify-center sticky top-0 overflow-hidden ${styles.stickyMask}`}
+            className={`h-screen flex items-center justify-center will-change-transform sticky top-0 overflow-hidden ${styles.stickyMask}`}
             style={{ WebkitMaskSize: maskSize }}
           >
             <InsideMask scrollYProgress={scrollYProgress} />

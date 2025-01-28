@@ -52,13 +52,24 @@ const LandingTitle = () => {
                   md:w-[288px] 
                 "
                 >
-                  <Image
+                  <video
+                    className="w-full h-full object-cover"
+                    preload="auto"
+                    autoPlay
+                    playsInline
+                    loop
+                    muted
+                  >
+                    <source src="/zero.mp4" type="video/mp4" />
+                    Your browser does not support video tag
+                  </video>
+                  {/* <Image
                     src={"/zero.webp"}
                     fill
                     sizes="33vw"
                     alt="zero's o image"
                     className=""
-                  />
+                  /> */}
                 </div>
               </motion.div>
             </motion.div>

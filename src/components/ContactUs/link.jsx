@@ -11,7 +11,9 @@ const FooterLink = ({ item, index }) => {
   const [canAnimate, setAnimate] = useState(false);
 
   return (
-    <div
+    <a
+      href={item.href}
+      target="_blank"
       ref={container}
       onMouseEnter={() => setAnimate(true)}
       onMouseLeave={() => setAnimate(false)}
@@ -35,7 +37,7 @@ const FooterLink = ({ item, index }) => {
         <ArrowSVG className="w-[26px] h-[26px] xs:w-9 xs:h-9" />
       </div>
       <FooterMarquee canAnimate={canAnimate} item={item} />
-    </div>
+    </a>
   );
 };
 

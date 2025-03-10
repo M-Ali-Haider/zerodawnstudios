@@ -27,9 +27,12 @@ const BottomSheet = ({
           <div className="text-[#6D6D6D] text-sm xs:text-base xs:leading-[20.75px] font-normal">
             Email us
           </div>
-          <div className="font-light text-lg xs:text-xl xs:leading-[31.13px]">
-            zerodawnstudios@gmail.com
-          </div>
+          <a
+            href="mailto:zerodawnstudio@gmail.com"
+            className="font-light text-lg xs:text-xl xs:leading-[31.13px]"
+          >
+            zerodawnstudio@gmail.com
+          </a>
         </div>
       </div>
     </BottomSheetWrapper>

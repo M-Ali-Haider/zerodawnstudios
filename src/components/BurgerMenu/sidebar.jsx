@@ -43,9 +43,12 @@ export default function Sidebar({ setIsOpen }) {
             <div className="text-[#6D6D6D] leading-[20.75px] font-normal">
               Email us
             </div>
-            <div className="font-light text-2xl leading-[31.13px] text-white">
-              zerodawnstudios@gmail.com
-            </div>
+            <a
+              href="mailto:zerodawnstudio@gmail.com"
+              className="font-light text-2xl leading-[31.13px] text-white"
+            >
+              zerodawnstudio@gmail.com
+            </a>
           </div>
         </div>
         <SidebarCurve />

@@ -1,26 +1,26 @@
 export const stickyCards = [
   {
-    title: "Horizon Webworks",
+    title: "Levi Photography",
     type: "UI/UX Design and Development",
-    src: "",
+    src: "/Projects/levi.webp",
     bg: "#2E2E2E",
   },
   {
-    title: "Horizon Webworks",
+    title: "Viper",
     type: "UI/UX Design and Development",
-    src: "",
+    src: "/Projects/luxury.webp",
     bg: "#D4D8E5",
   },
   {
-    title: "Horizon Webworks",
+    title: "Syncode",
     type: "UI/UX Design and Development",
-    src: "",
+    src: "/Projects/laptop.webp",
     bg: "#DFDFDF",
   },
   {
-    title: "Horizon Webworks",
+    title: "Koffee",
     type: "UI/UX Design and Development",
-    src: "",
+    src: "/Projects/coffee.webp",
     bg: "#CEC1AE",
   },
 ];

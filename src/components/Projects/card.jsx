@@ -26,7 +26,7 @@ const Card = ({ item, index, range, targetScale, progress }) => {
         }}
       >
         <UpperPart index={index} type={item.type} title={item.title} />
-        <LowerPart scale={imageScale} />
+        <LowerPart scale={imageScale} src={item.src} />
       </motion.div>
     </div>
   );
@@ -34,13 +34,13 @@ const Card = ({ item, index, range, targetScale, progress }) => {
 
 export default Card;
 
-const LowerPart = ({ scale }) => {
+const LowerPart = ({ scale, src }) => {
   return (
     <div className="w-full overflow-hidden flex-1 rounded-2xl">
       <motion.div style={{ scale }} className="w-full h-full relative">
         <Image
           alt="sticky card image"
-          src="/testImage.webp"
+          src={src || "/testImage.webp"}
           fill
           className="object-cover"
           priority
